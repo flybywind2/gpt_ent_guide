@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ChatGPT Enterprise 사내 도입 가이드</title>
+    <meta
+      name="description"
+      content="개인 구독과 ChatGPT Enterprise의 차이를 이해하고, 사내에서 안전하게 도입하고 확산하기 위한 범용 가이드"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23050b10'/%3E%3Cpath d='M16 34c0-10 7-18 16-18s16 8 16 18-7 14-16 14-16-4-16-14Z' fill='none' stroke='%232df4e1' stroke-width='5'/%3E%3Cpath d='M22 31h20M22 39h14' stroke='%2379e86f' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="reading-progress" id="readingProgress"></div>
+
+    <nav class="side-nav" aria-label="가이드 목차">
+      <div class="nav-brand">
+        <span>ChatGPT Enterprise</span>
+        <strong>사내 도입 가이드</strong>
+        <small>60분 브리핑 · 실행형 문서</small>
+      </div>
+      <ol>
+        <li><a href="#hero" data-section-link="hero"><span>01</span>개요</a></li>
+        <li><a href="#flow" data-section-link="flow"><span>02</span>60분 흐름</a></li>
+        <li><a href="#difference" data-section-link="difference"><span>03</span>차이점</a></li>
+        <li><a href="#enterprise" data-section-link="enterprise"><span>04</span>Enterprise 핵심</a></li>
+        <li><a href="#operating-model" data-section-link="operating-model"><span>05</span>운영 모델</a></li>
+        <li><a href="#scenarios" data-section-link="scenarios"><span>06</span>활용 시나리오</a></li>
+        <li><a href="#roadmap" data-section-link="roadmap"><span>07</span>30일 로드맵</a></li>
+        <li><a href="#policy" data-section-link="policy"><span>08</span>정책 키트</a></li>
+        <li><a href="#qa" data-section-link="qa"><span>09</span>Q&amp;A</a></li>
+        <li><a href="#sources" data-section-link="sources"><span>10</span>공식 자료</a></li>
+      </ol>
+      <div class="nav-note">
+        <span>핵심 원칙</span>
+        보안 우선 · 조직 통제 · 반복 가능한 활용
+      </div>
+    </nav>
+
+    <main>
+      <section id="hero" class="section hero">
+        <div class="hero-copy">
+          <p class="section-kicker">메모: 개인 생산성 도구가 아니라 조직 운영 체계로 본다</p>
+          <h1>ChatGPT Enterprise, 개인 도구에서 조직 역량으로.</h1>
+          <p class="hero-lead">
+            개인 구독과 Enterprise의 차이를 정확히 이해하고, 사내 데이터·권한·정책·교육을 함께 설계해
+            안전한 AI 활용을 반복 가능한 업무 방식으로 바꾸는 가이드입니다.
+          </p>
+          <div class="hero-actions" aria-label="빠른 이동">
+            <a class="button primary" href="#difference">차이점 먼저 보기</a>
+            <a class="button ghost" href="#roadmap">30일 로드맵 보기</a>
+          </div>
+        </div>
+        <figure class="visual-frame hero-visual">
+          <img src="assets/hero-enterprise.png" alt="ChatGPT Enterprise 사내 도입 가이드의 어두운 강의형 히어로 비주얼" />
+        </figure>
+        <div class="signal-grid" aria-label="가이드 핵심 메시지">
+          <div>
+            <span>대상</span>
+            전 직원, 관리자, IT/보안, 도입 담당자
+          </div>
+          <div>
+            <span>전제</span>
+            개인 활용 경험은 있거나 없어도 된다
+          </div>
+          <div>
+            <span>결과물</span>
+            도입 원칙, 운영 모델, 파일럿 계획, 측정 지표
+          </div>
+        </div>
+      </section>
+
+      <section id="flow" class="section">
+        <div class="section-head">
+          <p class="section-kicker">00. 오늘 문서의 사용법</p>
+          <h2>60분 브리핑 흐름</h2>
+          <p>회의 한 번으로 의사결정자와 실무자가 같은 그림을 보도록 구성했습니다.</p>
+        </div>
+        <div class="agenda">
+          <article><span>0~5</span><strong>왜 Enterprise인가</strong><p>개인 구독과 조직 도입의 목적 차이를 맞춥니다.</p></article>
+          <article><span>5~20</span><strong>핵심 차이점</strong><p>계정, 데이터, 권한, 보안, 분석, 지원의 차이를 봅니다.</p></article>
+          <article><span>20~35</span><strong>운영 모델</strong><p>관리자, 챔피언, 현업 사용자의 역할을 나눕니다.</p></article>
+          <article><span>35~50</span><strong>부서별 시나리오</strong><p>반복 업무와 안전한 활용 방식을 부서 단위로 정리합니다.</p></article>
+          <article><span>50~60</span><strong>30일 로드맵</strong><p>파일럿에서 운영화까지 실행 순서를 확정합니다.</p></article>
+        </div>
+      </section>
+
+      <section id="difference" class="section split-section">
+        <div class="section-head">
+          <p class="section-kicker">01. 개인 구독 vs Enterprise</p>
+          <h2>차이는 모델 성능보다 운영 경계에서 먼저 난다</h2>
+          <p>
+            개인 구독은 개인 생산성 향상에 적합합니다. Enterprise는 조직이 통제할 수 있는 워크스페이스,
+            보안 설정, 사용자 관리, 데이터 정책, 분석 체계를 갖추는 데 목적이 있습니다.
+          </p>
+        </div>
+        <figure class="visual-frame">
+          <img src="assets/personal-vs-enterprise.png" alt="개인 구독과 ChatGPT Enterprise의 차이를 비교한 시각 자료" />
+        </figure>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>관점</th>
+                <th>개인 구독</th>
+                <th>Enterprise</th>
+                <th>사내 의사결정 포인트</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>소유 주체</td>
+                <td>개인 계정과 개인 결제 중심</td>
+                <td>조직 워크스페이스와 조직 계약 중심</td>
+                <td>퇴사·조직 변경 시 접근권을 회수할 수 있어야 합니다.</td>
+              </tr>
+              <tr>
+                <td>데이터 학습</td>
+                <td>개인 설정과 서비스 조건에 의존</td>
+                <td>OpenAI 공식 자료 기준, 조직 데이터는 기본적으로 모델 학습에 사용되지 않습니다.</td>
+                <td>기밀 데이터 사용 범위와 예외 승인 절차를 문서화합니다.</td>
+              </tr>
+              <tr>
+                <td>접근 관리</td>
+                <td>이메일/비밀번호 또는 개인 인증 방식</td>
+                <td>SAML SSO, MFA, Enterprise의 SCIM 프로비저닝을 활용할 수 있습니다.</td>
+                <td>IdP, 그룹, 역할, 퇴사자 자동 회수를 먼저 설계합니다.</td>
+              </tr>
+              <tr>
+                <td>공유 자산</td>
+                <td>개인이 만든 GPT·프롬프트·프로젝트가 흩어짐</td>
+                <td>워크스페이스 GPT, 공유 프로젝트, 앱/커넥터 거버넌스를 운영합니다.</td>
+                <td>공유 가능한 지식 자산과 금지 자산을 분류합니다.</td>
+              </tr>
+              <tr>
+                <td>가시성</td>
+                <td>조직 차원의 사용 현황 파악이 어렵습니다.</td>
+                <td>사용자 분석과 기능 사용 추세를 운영 지표로 볼 수 있습니다.</td>
+                <td>활성 사용자, 업무 시간 절감, 정책 위반 감소를 같이 봅니다.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="enterprise" class="section">
+        <div class="section-head">
+          <p class="section-kicker">02. Enterprise를 도입하면 생기는 것</p>
+          <h2>“더 강한 개인 계정”이 아니라 “관리 가능한 AI 업무 환경”</h2>
+          <p>
+            사내 도입의 핵심은 모든 직원에게 같은 앱을 배포하는 것이 아닙니다. 조직의 데이터 경계와
+            업무 표준을 지키면서, 반복 업무를 줄이고 좋은 사용 패턴을 재사용 가능하게 만드는 것입니다.
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article>
+            <span class="icon-box">ID</span>
+            <h3>접근과 권한</h3>
+            <p>SSO, MFA, SCIM, 역할 기반 권한으로 누가 무엇을 사용할 수 있는지 관리합니다.</p>
+          </article>
+          <article>
+            <span class="icon-box">DATA</span>
+            <h3>데이터 보호</h3>
+            <p>조직 데이터 기본 학습 제외, 암호화, 보존 정책, 데이터 주권 요구사항을 검토합니다.</p>
+          </article>
+          <article>
+            <span class="icon-box">GPT</span>
+            <h3>공유 지식 자산</h3>
+            <p>부서별 GPT, 프롬프트 라이브러리, 프로젝트 템플릿을 표준 자산으로 운영합니다.</p>
+          </article>
+          <article>
+            <span class="icon-box">APP</span>
+            <h3>회사 데이터 연결</h3>
+            <p>SharePoint, Google Drive, GitHub, Box 등 회사 데이터 연결은 허용 범위와 책임자를 정해야 합니다.</p>
+          </article>
+          <article>
+            <span class="icon-box">LOG</span>
+            <h3>운영 가시성</h3>
+            <p>사용량, 활성도, 기능 사용 추세를 도입 효과와 리스크 관리 지표로 함께 봅니다.</p>
+          </article>
+          <article>
+            <span class="icon-box">24/7</span>
+            <h3>지원과 확산</h3>
+            <p>대규모 배포, 교육, 변화관리, 지원 채널을 도입 계획의 일부로 포함합니다.</p>
+          </article>
+        </div>
+        <div class="callout">
+          <strong>도입 판단 기준</strong>
+          개인 구독 사용자가 많아졌다는 사실은 Enterprise 필요성의 신호일 수 있습니다. 하지만 구매 전 질문은
+          “몇 명이 쓰는가”가 아니라 “조직이 안전하게 쓰게 할 운영 체계를 만들 준비가 되었는가”입니다.
+        </div>
+      </section>
+
+      <section id="operating-model" class="section">
+        <div class="section-head">
+          <p class="section-kicker">03. 운영 모델</p>
+          <h2>보안팀만의 일이 아니고, 현업만의 일도 아니다</h2>
+          <p>
+            Enterprise 운영은 정책, 관리자 설정, 부서별 챔피언, 현업 활용 루프가 맞물릴 때 지속됩니다.
+            한 번의 교육보다 반복 가능한 운영 리듬이 중요합니다.
+          </p>
+        </div>
+        <figure class="visual-frame">
+          <img src="assets/operating-model.png" alt="ChatGPT Enterprise 사내 운영 모델 4계층 다이어그램" />
+        </figure>
+        <div class="role-grid">
+          <article>
+            <h3>스폰서 / 경영진</h3>
+            <p>도입 목적, 우선순위, 허용 리스크, 성공 지표를 승인합니다.</p>
+          </article>
+          <article>
+            <h3>IT / 보안 / 법무</h3>
+            <p>SSO, SCIM, 보존 정책, 커넥터 허용, 데이터 분류 기준을 운영합니다.</p>
+          </article>
+          <article>
+            <h3>워크스페이스 관리자</h3>
+            <p>구성원, 그룹, 기능 권한, 공유 GPT, 사용 분석을 관리합니다.</p>
+          </article>
+          <article>
+            <h3>부서별 챔피언</h3>
+            <p>현업 사례를 발굴하고 프롬프트·템플릿·교육 자료로 정리합니다.</p>
+          </article>
+          <article>
+            <h3>사용자</h3>
+            <p>정책을 지키며 업무에 적용하고, 개선 요청과 성공 사례를 피드백합니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="scenarios" class="section">
+        <div class="section-head">
+          <p class="section-kicker">04. 부서별 활용 시나리오</p>
+          <h2>반복 업무를 줄이고, 검토 가능한 산출물을 늘린다</h2>
+          <p>
+            모든 부서에 같은 프롬프트를 배포하지 않습니다. 부서별 반복 업무, 금지 데이터, 검토 기준,
+            측정 지표를 묶어 작은 파일럿부터 시작합니다.
+          </p>
+        </div>
+        <figure class="visual-frame">
+          <img src="assets/department-scenarios.png" alt="개발, 기획, 영업, 인사, 법무 보안, 고객지원 부서별 활용 시나리오 표" />
+        </figure>
+        <div class="scenario-grid">
+          <article>
+            <h3>개발</h3>
+            <p>코드 설명, 테스트 초안, 로그 분석, 문서화. 내부 코드는 허용된 환경과 저장소 연결 정책 안에서만 사용합니다.</p>
+          </article>
+          <article>
+            <h3>기획</h3>
+            <p>요구사항 정리, 경쟁 조사 요약, 회의록 구조화. 미공개 전략 정보는 범위와 출처를 표시합니다.</p>
+          </article>
+          <article>
+            <h3>영업</h3>
+            <p>제안서 초안, 고객군별 메시지, 미팅 노트 요약. 고객 식별 정보는 비식별화 후 사용합니다.</p>
+          </article>
+          <article>
+            <h3>인사</h3>
+            <p>직무기술서, 교육 자료, 온보딩 FAQ. 개인 정보와 평가 정보는 별도 승인 기준을 둡니다.</p>
+          </article>
+          <article>
+            <h3>법무 / 보안</h3>
+            <p>계약 검토 보조, 정책 초안, 리스크 체크리스트. 최종 판단은 담당자가 책임지고 감사 흔적을 남깁니다.</p>
+          </article>
+          <article>
+            <h3>고객지원</h3>
+            <p>응답 초안, 문의 분류, 매뉴얼 요약. 고객 PII 마스킹과 상담 데이터 보존 정책을 우선 적용합니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="roadmap" class="section">
+        <div class="section-head">
+          <p class="section-kicker">05. 30일 로드맵</p>
+          <h2>작게 시작하고, 빨리 배우고, 운영 체계로 굳힌다</h2>
+          <p>파일럿은 “모두에게 배포”가 아니라 “측정 가능한 반복 업무 3개를 안전하게 바꾸는 실험”입니다.</p>
+        </div>
+        <figure class="visual-frame">
+          <img src="assets/roadmap-30days.png" alt="ChatGPT Enterprise 30일 도입 로드맵 타임라인" />
+        </figure>
+        <div class="roadmap-list">
+          <article><span>Week 0</span><h3>준비</h3><p>도입 목적, 이해관계자, 데이터 분류, 위험 평가, 커뮤니케이션 계획을 확정합니다.</p></article>
+          <article><span>Week 1</span><h3>파일럿</h3><p>SSO/SCIM, 관리자 설정, 파일럿 사용자, 기본 교육, 첫 유스케이스를 실행합니다.</p></article>
+          <article><span>Week 2</span><h3>확산</h3><p>부서별 챔피언을 세우고 프롬프트 라이브러리와 FAQ를 정리합니다.</p></article>
+          <article><span>Week 3</span><h3>운영화</h3><p>역할/권한, 커넥터, 지원 채널, 변경 관리, 릴리스 절차를 안정화합니다.</p></article>
+          <article><span>Week 4</span><h3>측정 / 개선</h3><p>활성 사용자, 업무 시간 절감, 품질, 정책 준수, 사용자 만족도를 보고합니다.</p></article>
+        </div>
+      </section>
+
+      <section id="policy" class="section">
+        <div class="section-head">
+          <p class="section-kicker">06. 정책 스타터 키트</p>
+          <h2>처음부터 완벽한 규정 대신, 반복 가능한 체크포인트</h2>
+          <p>다음 문구를 사내 정책 초안, 온보딩 문서, 챔피언 교육 자료의 출발점으로 사용할 수 있습니다.</p>
+        </div>
+        <div class="policy-grid">
+          <article>
+            <h3>허용</h3>
+            <ul>
+              <li>공개 자료 요약, 문서 초안, 회의록 구조화</li>
+              <li>비식별화된 예시 데이터 기반 분석</li>
+              <li>승인된 커넥터와 워크스페이스 내 공유 GPT 사용</li>
+            </ul>
+          </article>
+          <article>
+            <h3>제한</h3>
+            <ul>
+              <li>고객 PII, 영업비밀, 미공개 재무정보 입력</li>
+              <li>규제 대상 데이터의 무승인 업로드</li>
+              <li>검토 없이 외부 발송되는 법무·인사·보안 답변</li>
+            </ul>
+          </article>
+          <article>
+            <h3>검토</h3>
+            <ul>
+              <li>외부 배포 전 사실성, 출처, 법무/브랜드 기준 검토</li>
+              <li>부서 GPT 등록 전 데이터 범위와 소유자 확인</li>
+              <li>커넥터 추가 전 접근 범위와 감사 가능성 점검</li>
+            </ul>
+          </article>
+        </div>
+        <div class="prompt-card">
+          <div>
+            <h3>파일럿 유스케이스 정의 프롬프트</h3>
+            <p>챔피언이 부서 업무를 Enterprise 파일럿 후보로 정리할 때 사용합니다.</p>
+          </div>
+          <button class="copy-button" type="button" data-copy-target="pilotPrompt" aria-label="파일럿 프롬프트 복사">복사</button>
+          <pre id="pilotPrompt"><code>우리 부서의 반복 업무를 ChatGPT Enterprise 파일럿 후보로 정리해줘.
+
+조건:
+1. 입력 데이터의 민감도와 비식별화 가능성을 먼저 분류한다.
+2. 사람이 반드시 검토해야 하는 지점을 표시한다.
+3. 산출물 품질 기준과 측정 지표를 제안한다.
+4. 2주 안에 검증 가능한 작은 유스케이스 3개만 고른다.
+
+출력 형식:
+- 업무명
+- 현재 소요 시간
+- AI 활용 방식
+- 금지/주의 데이터
+- 검토 책임자
+- 성공 지표</code></pre>
+        </div>
+      </section>
+
+      <section id="qa" class="section">
+        <div class="section-head">
+          <p class="section-kicker">07. Q&amp;A</p>
+          <h2>도입 회의에서 자주 나오는 질문</h2>
+        </div>
+        <div class="qa-list">
+          <details open>
+            <summary>개인 Plus나 Pro를 이미 쓰는데 Enterprise가 꼭 필요한가?</summary>
+            <p>개인 생산성만 보면 개인 구독으로 충분할 수 있습니다. 조직 데이터, 권한 회수, SSO/SCIM, 감사 가능성, 커넥터 통제, 사용 분석이 필요해지는 순간 Enterprise 검토가 필요합니다.</p>
+          </details>
+          <details>
+            <summary>Enterprise면 어떤 데이터든 넣어도 되는가?</summary>
+            <p>아닙니다. Enterprise는 조직 통제와 보호 장치를 제공하지만, 사내 데이터 분류와 규제 요구를 없애지는 않습니다. 허용 데이터, 제한 데이터, 승인 절차를 먼저 정해야 합니다.</p>
+          </details>
+          <details>
+            <summary>성과는 어떻게 측정하는가?</summary>
+            <p>활성 사용자 수만 보면 부족합니다. 업무 시간 절감, 초안 품질, 재작업 감소, 응답 속도, 정책 준수, 사용자 만족도, 공유 자산 재사용률을 함께 봅니다.</p>
+          </details>
+          <details>
+            <summary>가장 먼저 만들 공유 자산은 무엇인가?</summary>
+            <p>부서별 “금지 데이터 목록”, “검토 체크리스트”, “반복 업무 프롬프트 5개”, “좋은 산출물 예시”가 가장 효과적입니다.</p>
+          </details>
+        </div>
+      </section>
+
+      <section id="sources" class="section">
+        <div class="section-head">
+          <p class="section-kicker">08. 공식 자료</p>
+          <h2>이 문서가 참고한 OpenAI 공식 자료</h2>
+          <p>기능과 정책은 바뀔 수 있으므로, 운영 문서로 채택할 때는 아래 자료를 기준일과 함께 다시 확인하세요. 기준일: 2026-05-29.</p>
+        </div>
+        <div class="source-grid">
+          <a href="https://chatgpt.com/business/enterprise/" target="_blank" rel="noreferrer">
+            <strong>ChatGPT Enterprise</strong>
+            Enterprise 개요, 회사 데이터 연결, 보안, 도입 지원
+          </a>
+          <a href="https://chatgpt.com/pricing/" target="_blank" rel="noreferrer">
+            <strong>ChatGPT Pricing</strong>
+            Free, Plus, Pro, Business, Enterprise 기능 비교
+          </a>
+          <a href="https://openai.com/business-data/" target="_blank" rel="noreferrer">
+            <strong>Business data privacy, security, and compliance</strong>
+            비즈니스 데이터 학습 제외, 암호화, 보존, 접근 관리, 컴플라이언스
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
