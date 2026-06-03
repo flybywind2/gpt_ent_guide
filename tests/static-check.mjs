@@ -20,6 +20,7 @@ for (const file of [
   "assets/operating-model.png",
   "assets/department-scenarios.png",
   "assets/roadmap-30days.png",
+  "assets/user-codex-workflow.png",
 ]) {
   mustExist(file);
 }
@@ -32,6 +33,7 @@ for (const id of [
   "difference",
   "enterprise",
   "operating-model",
+  "codex-updates",
   "scenarios",
   "roadmap",
   "policy",
@@ -43,12 +45,18 @@ for (const id of [
 
 for (const requiredText of [
   "ChatGPT Enterprise",
+  "Codex",
+  "Goal mode",
+  "Windows Computer Use",
+  "일반 사용자",
   "개인 구독",
   "사내 도입",
-  "30일 로드맵",
+  "처음 30일",
   "https://chatgpt.com/business/enterprise/",
   "https://chatgpt.com/pricing/",
   "https://openai.com/business-data/",
+  "https://help.openai.com/en/articles/11428266-codex-changelog",
+  "https://help.openai.com/en/articles/11369540-openai-codex-cloud-based-software-engineering-agent",
 ]) {
   if (!html.includes(requiredText)) throw new Error(`Missing required content: ${requiredText}`);
 }
