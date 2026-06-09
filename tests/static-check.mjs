@@ -24,6 +24,13 @@ const requiredFiles = [
   "assets/guide-image-generation-white.png",
   "assets/guide-projects-white.png",
   "assets/guide-deep-research-white.png",
+  "assets/hero-enterprise.png",
+  "assets/personal-vs-enterprise.png",
+  "assets/operating-model.png",
+  "assets/department-scenarios.png",
+  "assets/roadmap-30days.png",
+  "assets/user-codex-workflow.png",
+  "tools/visual-assets.html",
 ];
 
 for (const file of requiredFiles) mustExist(file);
@@ -100,6 +107,17 @@ for (const requiredText of [
   if (!index.includes(requiredText)) throw new Error(`Missing required content: ${requiredText}`);
 }
 
+for (const restoredAsset of [
+  "hero-enterprise.png",
+  "personal-vs-enterprise.png",
+  "operating-model.png",
+  "department-scenarios.png",
+  "roadmap-30days.png",
+  "user-codex-workflow.png",
+]) {
+  if (!index.includes(restoredAsset)) throw new Error(`Restored visual is not referenced in index: ${restoredAsset}`);
+}
+
 const heroMatch = index.match(/<section id="hero"[\s\S]*?<\/section>/);
 if (!heroMatch) throw new Error("Missing hero section");
 for (const removedHeroText of ["파일 첨부 불가 환경 전제", "첨부 없이도"]) {
@@ -108,26 +126,10 @@ for (const removedHeroText of ["파일 첨부 불가 환경 전제", "첨부 없
   }
 }
 
-const oldAssets = [
-  "hero-enterprise.png",
-  "personal-vs-enterprise.png",
-  "operating-model.png",
-  "department-scenarios.png",
-  "roadmap-30days.png",
-  "user-codex-workflow.png",
-];
-
-for (const oldAsset of oldAssets) {
-  if (existsSync(join(root, "assets", oldAsset))) throw new Error(`Old dark asset still exists: ${oldAsset}`);
-}
-
 for (const file of htmlFiles) {
   const html = read(file);
   if (!html.includes("파일 첨부")) throw new Error(`${file} must state the no-attachment assumption`);
   if (!html.includes("copy-button")) throw new Error(`${file} must include a copyable prompt template`);
-  for (const oldAsset of oldAssets) {
-    if (html.includes(oldAsset)) throw new Error(`${file} still references old dark asset: ${oldAsset}`);
-  }
 
   const imageRefs = [...html.matchAll(/<img[^>]+src="([^"]+)"[^>]*>/g)];
   if (imageRefs.length < 1) throw new Error(`${file} must include at least one image`);
@@ -165,6 +167,7 @@ for (const token of [
   ".guide-sidebar",
   ".feature-hero",
   ".feature-preview",
+  ".section-visual",
   ".overview-grid",
   ".difference-grid",
   ".comparison-table",

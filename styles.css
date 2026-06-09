@@ -312,6 +312,19 @@ p, li, td, th {
 .feature-preview figcaption a:hover {
   text-decoration: underline;
 }
+.section-visual {
+  margin: 28px 0 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.section-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 .section {
   padding: 58px 0;
   border-top: 1px solid var(--line);
