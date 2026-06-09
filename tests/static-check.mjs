@@ -106,10 +106,14 @@ for (const [file, title, image] of pageExpectations) {
   const html = read(file);
   if (!html.includes(title)) throw new Error(`${file} missing title: ${title}`);
   if (!html.includes(image)) throw new Error(`${file} missing image: ${image}`);
+  if (!html.includes("feature-preview")) throw new Error(`${file} missing large image preview`);
+  if (!html.includes("원본 이미지 열기")) throw new Error(`${file} missing original image link`);
+  const imageCount = [...html.matchAll(new RegExp(image, "g"))].length;
+  if (imageCount < 4) throw new Error(`${file} must show and link ${image} in hero, large preview, and original image link`);
 }
 
 const css = read("styles.css");
-for (const token of ["--bg: #ffffff", "@media", ".topbar", ".feature-hero", ".prompt-panel", ".side-rail"]) {
+for (const token of ["--bg: #ffffff", "@media", ".topbar", ".feature-hero", ".feature-preview", ".prompt-panel", ".side-rail"]) {
   if (!css.includes(token)) throw new Error(`Missing CSS token: ${token}`);
 }
 for (const darkToken of ["#0b1020", "#101828", "linear-gradient(135deg, #14171f"]) {

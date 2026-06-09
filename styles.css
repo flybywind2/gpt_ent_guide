@@ -70,7 +70,7 @@ a { color: inherit; }
 }
 
 main {
-  width: min(1220px, calc(100vw - 40px));
+  width: min(1360px, calc(100vw - 40px));
   margin: 0 auto;
 }
 .hero,
@@ -80,6 +80,10 @@ main {
   gap: 42px;
   align-items: center;
   padding: 72px 0 58px;
+}
+.feature-hero {
+  grid-template-columns: minmax(360px, 0.68fr) minmax(640px, 1.32fr);
+  gap: 56px;
 }
 .hero-copy,
 .feature-copy { min-width: 0; }
@@ -164,6 +168,50 @@ p, li, td, th {
   display: block;
   width: 100%;
   height: auto;
+}
+.feature-image {
+  align-self: center;
+}
+.feature-image img {
+  min-height: 390px;
+  object-fit: cover;
+  object-position: center;
+}
+.feature-preview {
+  padding: 0 0 58px;
+}
+.feature-preview figure {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.feature-preview figure > a {
+  display: block;
+  cursor: zoom-in;
+}
+.feature-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.feature-preview figcaption {
+  padding: 14px 18px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+  border-top: 1px solid var(--line);
+  background: #fbfcfd;
+}
+.feature-preview figcaption a {
+  color: var(--green);
+  font-weight: 800;
+  text-decoration: none;
+}
+.feature-preview figcaption a:hover {
+  text-decoration: underline;
 }
 .section {
   padding: 58px 0;
@@ -333,6 +381,10 @@ th {
   .feature-layout {
     grid-template-columns: 1fr;
   }
+  .feature-image img {
+    min-height: 0;
+    object-fit: contain;
+  }
   .side-rail {
     position: static;
     grid-template-columns: repeat(4, 1fr);
@@ -354,7 +406,7 @@ th {
     flex-direction: column;
   }
   main {
-    width: min(100vw - 28px, 1220px);
+    width: min(100vw - 28px, 1360px);
   }
   .hero,
   .feature-hero {
@@ -382,6 +434,12 @@ th {
   .prompt-panel .copy-button {
     position: static;
     margin: 16px 16px 0;
+  }
+  .feature-preview {
+    padding-bottom: 42px;
+  }
+  .feature-preview figcaption {
+    font-size: 13px;
   }
   pre {
     padding: 18px;
