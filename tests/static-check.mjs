@@ -10,75 +10,114 @@ const mustExist = (path) => {
   return target;
 };
 
-for (const file of [
+const requiredFiles = [
   "index.html",
   "styles.css",
   "script.js",
   ".github/workflows/pages.yml",
-  "assets/hero-enterprise.png",
-  "assets/personal-vs-enterprise.png",
-  "assets/operating-model.png",
-  "assets/department-scenarios.png",
-  "assets/roadmap-30days.png",
-  "assets/user-codex-workflow.png",
-]) {
-  mustExist(file);
-}
+  "pages/chat.html",
+  "pages/image-generation.html",
+  "pages/projects.html",
+  "pages/deep-research.html",
+  "assets/guide-overview-white.png",
+  "assets/guide-chat-white.png",
+  "assets/guide-image-generation-white.png",
+  "assets/guide-projects-white.png",
+  "assets/guide-deep-research-white.png",
+];
 
-const html = read("index.html");
+for (const file of requiredFiles) mustExist(file);
 
-for (const id of [
-  "hero",
-  "flow",
-  "difference",
-  "enterprise",
-  "operating-model",
-  "codex-updates",
-  "scenarios",
-  "roadmap",
-  "policy",
-  "qa",
-  "sources",
-]) {
-  if (!html.includes(`id="${id}"`)) throw new Error(`Missing section id: ${id}`);
+const htmlFiles = [
+  "index.html",
+  "pages/chat.html",
+  "pages/image-generation.html",
+  "pages/projects.html",
+  "pages/deep-research.html",
+];
+
+const index = read("index.html");
+for (const id of ["hero", "no-attachments", "features", "workflow", "safety", "codex-updates", "prompt-template", "sources"]) {
+  if (!index.includes(`id="${id}"`)) throw new Error(`Missing section id: ${id}`);
 }
 
 for (const requiredText of [
   "ChatGPT Enterprise",
+  "파일 첨부 불가",
+  "Chat",
+  "Image Generation",
+  "Projects",
+  "Deep Research",
+  "개인 구독",
   "Codex",
   "Goal mode",
-  "Windows Computer Use",
-  "일반 사용자",
-  "개인 구독",
-  "사내 도입",
-  "처음 30일",
   "https://chatgpt.com/business/enterprise/",
   "https://chatgpt.com/pricing/",
   "https://openai.com/business-data/",
-  "https://help.openai.com/en/articles/11428266-codex-changelog",
-  "https://help.openai.com/en/articles/11369540-openai-codex-cloud-based-software-engineering-agent",
+  "https://help.openai.com/en/articles/11084440-chatgpt-image-library",
+  "https://help.openai.com/en/articles/10169521-using-projects-in-chatgpt",
+  "https://help.openai.com/en/articles/10500283-deep-research-faq",
+  "https://help.openai.com/en/articles/11369540",
+  "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
 ]) {
-  if (!html.includes(requiredText)) throw new Error(`Missing required content: ${requiredText}`);
+  if (!index.includes(requiredText)) throw new Error(`Missing required content: ${requiredText}`);
 }
 
-const imageRefs = [...html.matchAll(/<img[^>]+src="([^"]+)"[^>]*>/g)];
-if (imageRefs.length < 5) throw new Error(`Expected at least 5 images, found ${imageRefs.length}`);
+const oldAssets = [
+  "hero-enterprise.png",
+  "personal-vs-enterprise.png",
+  "operating-model.png",
+  "department-scenarios.png",
+  "roadmap-30days.png",
+  "user-codex-workflow.png",
+];
 
-for (const match of imageRefs) {
-  const tag = match[0];
-  const src = match[1];
-  if (!/\salt="[^"]+"/.test(tag)) throw new Error(`Image is missing alt text: ${src}`);
-  const target = mustExist(src);
-  if (statSync(target).size < 100_000) throw new Error(`Image file looks too small: ${src}`);
+for (const oldAsset of oldAssets) {
+  if (existsSync(join(root, "assets", oldAsset))) throw new Error(`Old dark asset still exists: ${oldAsset}`);
+}
+
+for (const file of htmlFiles) {
+  const html = read(file);
+  if (!html.includes("파일 첨부")) throw new Error(`${file} must state the no-attachment assumption`);
+  if (!html.includes("copy-button")) throw new Error(`${file} must include a copyable prompt template`);
+  for (const oldAsset of oldAssets) {
+    if (html.includes(oldAsset)) throw new Error(`${file} still references old dark asset: ${oldAsset}`);
+  }
+
+  const imageRefs = [...html.matchAll(/<img[^>]+src="([^"]+)"[^>]*>/g)];
+  if (imageRefs.length < 1) throw new Error(`${file} must include at least one image`);
+  for (const match of imageRefs) {
+    const tag = match[0];
+    const src = match[1].replace("../", "");
+    if (!/\salt="[^"]+"/.test(tag)) throw new Error(`Image is missing alt text in ${file}: ${match[1]}`);
+    const target = mustExist(src);
+    if (statSync(target).size < 100_000) throw new Error(`Image file looks too small: ${src}`);
+  }
+}
+
+const pageExpectations = [
+  ["pages/chat.html", "Chat 기본 템플릿", "guide-chat-white.png"],
+  ["pages/image-generation.html", "Image Generation 기본 템플릿", "guide-image-generation-white.png"],
+  ["pages/projects.html", "프로젝트 지시문 템플릿", "guide-projects-white.png"],
+  ["pages/deep-research.html", "Deep Research 기본 템플릿", "guide-deep-research-white.png"],
+];
+
+for (const [file, title, image] of pageExpectations) {
+  const html = read(file);
+  if (!html.includes(title)) throw new Error(`${file} missing title: ${title}`);
+  if (!html.includes(image)) throw new Error(`${file} missing image: ${image}`);
 }
 
 const css = read("styles.css");
-for (const token of ["--bg", "--accent", "@media", ".side-nav", ".hero"]) {
+for (const token of ["--bg: #ffffff", "@media", ".topbar", ".feature-hero", ".prompt-panel", ".side-rail"]) {
   if (!css.includes(token)) throw new Error(`Missing CSS token: ${token}`);
+}
+for (const darkToken of ["#0b1020", "#101828", "linear-gradient(135deg, #14171f"]) {
+  if (css.includes(darkToken)) throw new Error(`CSS still includes dark theme token: ${darkToken}`);
 }
 
 const js = read("script.js");
-for (const token of ["IntersectionObserver", "copyPrompt", "readingProgress"]) {
+for (const token of ["data-copy-target", "aria-current", "side-rail"]) {
   if (!js.includes(token)) throw new Error(`Missing JS behavior: ${token}`);
 }
 

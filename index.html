@@ -3,458 +3,243 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ChatGPT Enterprise 사내 도입 가이드</title>
+    <title>ChatGPT Enterprise 사용자 가이드</title>
     <meta
       name="description"
-      content="일반 사용자가 ChatGPT Enterprise와 Codex를 사내 업무에서 안전하고 구체적으로 활용하기 위한 실전 가이드"
+      content="파일 첨부가 불가한 환경에서 ChatGPT Enterprise의 Chat, Image Generation, Projects, Deep Research를 업무에 활용하는 화이트 테마 사용자 가이드"
     />
-    <link
-      rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23050b10'/%3E%3Cpath d='M16 34c0-10 7-18 16-18s16 8 16 18-7 14-16 14-16-4-16-14Z' fill='none' stroke='%232df4e1' stroke-width='5'/%3E%3Cpath d='M22 31h20M22 39h14' stroke='%2379e86f' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E"
-    />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23ffffff'/%3E%3Cpath d='M17 33c0-9 6.7-16 15-16s15 7 15 16-6.7 14-15 14-15-5-15-14Z' fill='none' stroke='%2300875f' stroke-width='5'/%3E%3Cpath d='M24 30h16M24 38h12' stroke='%231a73e8' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E" />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
-    <div class="reading-progress" id="readingProgress"></div>
-
-    <nav class="side-nav" aria-label="가이드 목차">
-      <div class="nav-brand">
+  <body data-page="home">
+    <header class="topbar">
+      <a class="brand" href="./index.html" aria-label="ChatGPT Enterprise 사용자 가이드 홈">
         <span>ChatGPT Enterprise</span>
-        <strong>일반 사용자 가이드</strong>
-        <small>업무 적용 · Codex 최신 흐름 반영</small>
-      </div>
-      <ol>
-        <li><a href="#hero" data-section-link="hero"><span>01</span>개요</a></li>
-        <li><a href="#flow" data-section-link="flow"><span>02</span>빠른 시작</a></li>
-        <li><a href="#difference" data-section-link="difference"><span>03</span>차이점</a></li>
-        <li><a href="#enterprise" data-section-link="enterprise"><span>04</span>업무 변화</a></li>
-        <li><a href="#operating-model" data-section-link="operating-model"><span>05</span>하루 흐름</a></li>
-        <li><a href="#codex-updates" data-section-link="codex-updates"><span>06</span>Codex 최신</a></li>
-        <li><a href="#scenarios" data-section-link="scenarios"><span>07</span>업무별 예시</a></li>
-        <li><a href="#roadmap" data-section-link="roadmap"><span>08</span>첫 30일</a></li>
-        <li><a href="#policy" data-section-link="policy"><span>09</span>안전 사용</a></li>
-        <li><a href="#qa" data-section-link="qa"><span>10</span>Q&amp;A</a></li>
-        <li><a href="#sources" data-section-link="sources"><span>11</span>공식 자료</a></li>
-      </ol>
-      <div class="nav-note">
-        <span>핵심 원칙</span>
-        작게 맡기고 · 검토하고 · 공유한다
-      </div>
-    </nav>
+        <strong>사용자 가이드</strong>
+      </a>
+      <nav class="topnav" aria-label="주요 페이지">
+        <a href="./pages/chat.html">Chat</a>
+        <a href="./pages/image-generation.html">Image Generation</a>
+        <a href="./pages/projects.html">Projects</a>
+        <a href="./pages/deep-research.html">Deep Research</a>
+      </nav>
+    </header>
 
     <main>
-      <section id="hero" class="section hero">
+      <section id="hero" class="hero light-hero">
         <div class="hero-copy">
-          <p class="section-kicker">일반 사용자를 위한 실전판</p>
-          <h1>ChatGPT Enterprise, 오늘 업무에 바로 쓰는 법.</h1>
+          <p class="eyebrow">파일 첨부 불가 환경 전제</p>
+          <h1>첨부 없이도 ChatGPT Enterprise를 업무에 쓰는 법</h1>
           <p class="hero-lead">
-            개인 구독과 Enterprise의 차이를 이해하되, 초점은 관리자 설정이 아니라 사용자의 하루 업무입니다.
-            회의 정리, 문서 작성, 데이터 분석, Codex 자동화, 결과 검토까지 안전하게 맡기는 방법을 구체적으로 정리했습니다.
+            이 가이드는 사내 보안 정책상 파일 첨부를 사용할 수 없다고 가정합니다.
+            대신 텍스트 발췌, URL, 회의 메모, 표 일부, 체크리스트만으로 Chat, Image Generation,
+            Projects, Deep Research를 실무에 적용하는 방법을 정리했습니다.
           </p>
-          <div class="hero-actions" aria-label="빠른 이동">
-            <a class="button primary" href="#flow">오늘 바로 시작</a>
-            <a class="button ghost" href="#codex-updates">Codex 최신 활용 보기</a>
+          <div class="hero-actions">
+            <a class="button primary" href="#features">기능별 사용법 보기</a>
+            <a class="button secondary" href="#no-attachments">첨부 없이 쓰는 원칙</a>
           </div>
         </div>
-        <figure class="visual-frame hero-visual">
-          <img src="assets/hero-enterprise.png" alt="ChatGPT Enterprise 사내 도입 가이드의 어두운 강의형 히어로 비주얼" />
+        <figure class="hero-image">
+          <img src="assets/guide-overview-white.png" alt="파일 첨부 없이 ChatGPT Enterprise의 주요 기능을 사용하는 화이트 테마 개요 이미지" />
         </figure>
-        <div class="signal-grid" aria-label="가이드 핵심 메시지">
-          <div>
-            <span>대상</span>
-            사내 ChatGPT Enterprise를 쓰는 모든 일반 사용자
-          </div>
-          <div>
-            <span>전제</span>
-            프롬프트 고수가 아니어도 된다. 업무 맥락만 정확히 주면 된다
-          </div>
-          <div>
-            <span>결과물</span>
-            매일 쓸 수 있는 업무 루틴, 예시 프롬프트, 검토 체크리스트
-          </div>
-        </div>
       </section>
 
-      <section id="flow" class="section">
+      <section id="no-attachments" class="section">
         <div class="section-head">
-          <p class="section-kicker">00. 빠른 시작</p>
-          <h2>처음 30분은 기능 탐색이 아니라 업무 하나를 끝내는 데 쓴다</h2>
-          <p>좋은 시작점은 거창한 AI 전략이 아닙니다. 오늘 해야 할 반복 업무 하나를 고르고, 입력 범위와 검토 기준을 정한 뒤 결과를 바로 비교합니다.</p>
-        </div>
-        <div class="agenda">
-          <article><span>1</span><strong>업무 고르기</strong><p>회의록, 보고서 초안, 표 분석, 이메일 초안처럼 결과를 바로 확인할 수 있는 일을 고릅니다.</p></article>
-          <article><span>2</span><strong>맥락 주기</strong><p>목적, 대상, 제약, 참고 파일, 원하는 출력 형식을 한 번에 알려줍니다.</p></article>
-          <article><span>3</span><strong>초안 받기</strong><p>처음부터 완성본을 기대하지 말고, 비교 가능한 초안과 대안을 받습니다.</p></article>
-          <article><span>4</span><strong>검토하기</strong><p>사실, 수치, 고객명, 법무·보안 표현, 사내 정책 위반 가능성을 확인합니다.</p></article>
-          <article><span>5</span><strong>반복 자산화</strong><p>잘 된 프롬프트와 검토 기준을 팀 템플릿으로 저장합니다.</p></article>
-        </div>
-      </section>
-
-      <section id="difference" class="section split-section">
-        <div class="section-head">
-          <p class="section-kicker">01. 개인 구독 vs Enterprise</p>
-          <h2>차이는 모델 성능보다 운영 경계에서 먼저 난다</h2>
+          <p class="eyebrow">공통 전제</p>
+          <h2>파일을 못 올리면, 맥락을 더 잘 써야 한다</h2>
           <p>
-            개인 구독은 개인 생산성 향상에 적합합니다. Enterprise는 조직이 통제할 수 있는 워크스페이스,
-            보안 설정, 사용자 관리, 데이터 정책, 분석 체계를 갖추는 데 목적이 있습니다.
+            첨부가 없을 때 결과 품질은 프롬프트 문장력보다 입력 구조에서 갈립니다.
+            원본 전체가 없어도 목적, 배경, 핵심 발췌, 제약, 원하는 출력, 검토 기준을 주면
+            충분히 실무적인 답을 얻을 수 있습니다.
           </p>
         </div>
-        <figure class="visual-frame">
-          <img src="assets/personal-vs-enterprise.png" alt="개인 구독과 ChatGPT Enterprise의 차이를 비교한 시각 자료" />
-        </figure>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>관점</th>
-                <th>개인 구독</th>
-                <th>Enterprise</th>
-                <th>사내 의사결정 포인트</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>소유 주체</td>
-                <td>개인 계정과 개인 결제 중심</td>
-                <td>조직 워크스페이스와 조직 계약 중심</td>
-                <td>퇴사·조직 변경 시 접근권을 회수할 수 있어야 합니다.</td>
-              </tr>
-              <tr>
-                <td>데이터 학습</td>
-                <td>개인 설정과 서비스 조건에 의존</td>
-                <td>OpenAI 공식 자료 기준, 조직 데이터는 기본적으로 모델 학습에 사용되지 않습니다.</td>
-                <td>기밀 데이터 사용 범위와 예외 승인 절차를 문서화합니다.</td>
-              </tr>
-              <tr>
-                <td>접근 관리</td>
-                <td>이메일/비밀번호 또는 개인 인증 방식</td>
-                <td>SAML SSO, MFA, Enterprise의 SCIM 프로비저닝을 활용할 수 있습니다.</td>
-                <td>IdP, 그룹, 역할, 퇴사자 자동 회수를 먼저 설계합니다.</td>
-              </tr>
-              <tr>
-                <td>공유 자산</td>
-                <td>개인이 만든 GPT·프롬프트·프로젝트가 흩어짐</td>
-                <td>워크스페이스 GPT, 공유 프로젝트, 앱/커넥터 거버넌스를 운영합니다.</td>
-                <td>공유 가능한 지식 자산과 금지 자산을 분류합니다.</td>
-              </tr>
-              <tr>
-                <td>가시성</td>
-                <td>조직 차원의 사용 현황 파악이 어렵습니다.</td>
-                <td>사용자 분석과 기능 사용 추세를 운영 지표로 볼 수 있습니다.</td>
-                <td>활성 사용자, 업무 시간 절감, 정책 위반 감소를 같이 봅니다.</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="principles">
+          <article>
+            <span>01</span>
+            <h3>원본 대신 발췌</h3>
+            <p>긴 문서는 핵심 문단, 표 일부, 결정사항, 문제 구간만 붙여넣습니다.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>URL은 참고 단서</h3>
+            <p>접근 가능한 공개 URL과 함께 어느 부분을 봐야 하는지 적습니다.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>출력 형식을 지정</h3>
+            <p>요약문, 표, 메일 초안, 체크리스트, 리서치 보고서처럼 결과 형태를 먼저 정합니다.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>검토 기준을 포함</h3>
+            <p>정확성, 톤, 금지 표현, 보안 주의점, 다음 액션을 함께 확인하게 합니다.</p>
+          </article>
         </div>
       </section>
 
-      <section id="enterprise" class="section">
+      <section id="features" class="section">
         <div class="section-head">
-          <p class="section-kicker">02. 일반 사용자가 체감하는 차이</p>
-          <h2>Enterprise는 “혼자 쓰는 챗봇”을 “팀에서 재사용하는 업무 도구”로 바꾼다</h2>
+          <p class="eyebrow">기능별 페이지</p>
+          <h2>업무 목적에 맞는 도구를 고른다</h2>
           <p>
-            관리자가 어떤 설정을 했는지 모두 알 필요는 없습니다. 사용자는 “사내 계정으로 안전하게 쓰고,
-            파일과 맥락을 붙이고, 좋은 결과를 팀 자산으로 남기는 방식”만 익히면 됩니다.
+            각 페이지는 파일 첨부 없이 쓸 수 있는 입력 구조, 프롬프트 템플릿, 검토 체크리스트를 제공합니다.
+            개인 구독과 달리 Enterprise는 회사의 보안, 관리, 데이터 보호 체계 안에서 같은 도구를 함께 쓰는 환경입니다.
           </p>
         </div>
-        <div class="feature-grid">
-          <article>
-            <span class="icon-box">CHAT</span>
-            <h3>긴 대화를 업무 단위로 관리</h3>
-            <p>프로젝트, 파일, 지시사항을 한 묶음으로 두고 같은 맥락에서 후속 질문을 이어갑니다.</p>
-          </article>
-          <article>
-            <span class="icon-box">FILE</span>
-            <h3>파일을 읽고 구조화</h3>
-            <p>PDF, 문서, 스프레드시트를 올려 요약, 비교, 리스크 추출, 표 변환을 요청합니다.</p>
-          </article>
-          <article>
-            <span class="icon-box">GPT</span>
-            <h3>반복 업무는 GPT로 고정</h3>
-            <p>매번 같은 설명을 반복하지 않도록 팀의 문체, 검토 기준, 출력 형식을 GPT에 담습니다.</p>
-          </article>
-          <article>
-            <span class="icon-box">CODEX</span>
-            <h3>코드와 자동화 작업을 맡김</h3>
-            <p>Codex에 웹페이지 수정, 스크립트 작성, 테스트 실행, 버그 재현 같은 작업을 위임합니다.</p>
-          </article>
-          <article>
-            <span class="icon-box">CHECK</span>
-            <h3>최종 판단은 사람이 한다</h3>
-            <p>AI가 만든 초안을 그대로 발송하지 않고 사실, 출처, 정책, 이해관계자 영향을 확인합니다.</p>
-          </article>
-          <article>
-            <span class="icon-box">TEAM</span>
-            <h3>좋은 사용법을 공유</h3>
-            <p>혼자만 잘 쓰는 데서 멈추지 말고 프롬프트, 예시, 실패 사례를 팀 위키에 남깁니다.</p>
-          </article>
-        </div>
-        <div class="callout">
-          <strong>사용자 관점의 핵심</strong>
-          Enterprise는 “회사 데이터가 안전하니 아무거나 넣어도 된다”는 뜻이 아닙니다.
-          대신 허용된 범위 안에서 더 많은 업무 맥락을 주고, 결과를 검토하고, 반복 가능한 방식으로 팀에 공유할 수 있게 해줍니다.
+        <div class="feature-cards">
+          <a class="feature-card green" href="./pages/chat.html">
+            <span>Chat</span>
+            <h3>대화로 업무 해결</h3>
+            <p>요약, 작성, 비교, 검토, 의사결정 보조를 텍스트 기반 대화로 처리합니다.</p>
+          </a>
+          <a class="feature-card blue" href="./pages/image-generation.html">
+            <span>Image Generation</span>
+            <h3>프롬프트만으로 시각 자료 제작</h3>
+            <p>보고서, 발표, 안내 이미지의 목적과 스타일을 텍스트로 정의합니다.</p>
+          </a>
+          <a class="feature-card green" href="./pages/projects.html">
+            <span>Projects</span>
+            <h3>반복 업무 맥락 유지</h3>
+            <p>파일 없이도 프로젝트 지시문, 맥락 메모, 결정 기록으로 장기 업무를 묶습니다.</p>
+          </a>
+          <a class="feature-card purple" href="./pages/deep-research.html">
+            <span>Deep Research</span>
+            <h3>출처 기반 조사와 보고서</h3>
+            <p>질문 범위, 사이트 조건, 기간, 출력 형식을 정해 공개 웹 중심 리서치를 수행합니다.</p>
+          </a>
         </div>
       </section>
 
-      <section id="operating-model" class="section">
+      <section id="workflow" class="section">
         <div class="section-head">
-          <p class="section-kicker">03. 일반 사용자의 하루 흐름</p>
-          <h2>ChatGPT와 Codex를 “질문 도구”가 아니라 “작업 루프”로 쓴다</h2>
+          <p class="eyebrow">공통 작업 흐름</p>
+          <h2>첨부 없이 일할 때의 5단계</h2>
+        </div>
+        <div class="steps">
+          <article class="step-card">
+            <span>1</span>
+            <h3>목표 선언</h3>
+            <p>지금 필요한 결과가 요약, 초안, 비교표, 리서치, 이미지 중 무엇인지 먼저 적습니다.</p>
+          </article>
+          <article class="step-card">
+            <span>2</span>
+            <h3>텍스트 맥락 제공</h3>
+            <p>파일 대신 발췌문, 회의 메모, 표 일부, 공개 URL, 본인이 정리한 배경을 넣습니다.</p>
+          </article>
+          <article class="step-card">
+            <span>3</span>
+            <h3>제약 조건 명시</h3>
+            <p>보안상 제외할 내용, 사용할 수 없는 자료, 대상 독자, 톤, 분량을 지정합니다.</p>
+          </article>
+          <article class="step-card">
+            <span>4</span>
+            <h3>초안 검토</h3>
+            <p>사실, 출처, 내부 정책, 민감정보 포함 여부를 사람이 확인합니다.</p>
+          </article>
+          <article class="step-card">
+            <span>5</span>
+            <h3>반복 템플릿화</h3>
+            <p>잘 작동한 프롬프트는 팀 업무 템플릿으로 저장하고 같은 방식으로 재사용합니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="safety" class="section">
+        <div class="section-head">
+          <p class="eyebrow">사용자 관점의 안전 원칙</p>
+          <h2>Enterprise라도 입력 전 점검은 필요하다</h2>
           <p>
-            최신 Codex는 브라우저, 로컬 앱, 모바일 원격 확인까지 작업 범위를 넓히고 있습니다.
-            일반 사용자는 작은 목표를 주고, 중간 결과를 확인하고, 마지막 품질 검토를 맡는 역할에 집중합니다.
+            Enterprise는 비즈니스 데이터 보호와 조직 관리 기능을 제공하지만, 사용자는 여전히
+            사내 기밀, 개인정보, 고객 식별 정보, 미공개 재무 정보가 불필요하게 들어가지 않도록 확인해야 합니다.
           </p>
         </div>
-        <figure class="visual-frame">
-          <img src="assets/user-codex-workflow.png" alt="일반 사용자가 ChatGPT Enterprise와 Codex를 업무 흐름에 사용하는 시각 자료" />
-        </figure>
-        <div class="role-grid">
-          <article>
-            <h3>아침: 회의·메일 정리</h3>
-            <p>녹취, 회의록, 메일을 요약시키고 결정사항·담당자·기한만 따로 뽑습니다.</p>
+        <div class="check-grid">
+          <article class="check-card">
+            <h3>넣어도 되는가</h3>
+            <p>사내 정책상 AI 도구 입력이 허용된 범위인지 먼저 확인합니다.</p>
           </article>
-          <article>
-            <h3>오전: 파일 분석</h3>
-            <p>표와 문서를 올려 추세, 이상치, 누락 항목, 후속 질문 목록을 받습니다.</p>
+          <article class="check-card">
+            <h3>줄여서 넣을 수 있는가</h3>
+            <p>전체 문서 대신 필요한 문장과 수치만 축약해 넣습니다.</p>
           </article>
-          <article>
-            <h3>오후: Codex에 작업 위임</h3>
-            <p>웹페이지, 스크립트, 데이터 정리, 테스트 같은 반복 작업을 목표 중심으로 맡깁니다.</p>
+          <article class="check-card">
+            <h3>결과를 믿어도 되는가</h3>
+            <p>숫자, 법무, 재무, 인사, 고객 약속은 원문과 담당자 확인을 거칩니다.</p>
           </article>
-          <article>
-            <h3>중간: 진행 상황 확인</h3>
-            <p>브라우저 화면, Appshots, 모바일 원격 접근으로 결과를 보고 방향을 수정합니다.</p>
-          </article>
-          <article>
-            <h3>마감: 검토 후 공유</h3>
-            <p>사실, 수치, 보안, 문체를 확인하고 팀이 재사용할 템플릿으로 남깁니다.</p>
+          <article class="check-card">
+            <h3>공유해도 되는가</h3>
+            <p>생성 결과를 메일, 슬랙, 문서에 붙이기 전에 출처와 민감정보를 다시 확인합니다.</p>
           </article>
         </div>
       </section>
 
       <section id="codex-updates" class="section">
         <div class="section-head">
-          <p class="section-kicker">04. 2026년 Codex 최신 흐름 반영</p>
-          <h2>Codex 최신 업데이트를 업무에 쓰는 법</h2>
+          <p class="eyebrow">개발 업무 사용자를 위한 보충</p>
+          <h2>Codex는 별도 관리 도구가 아니라 작업을 맡기는 에이전트다</h2>
           <p>
-            OpenAI Codex changelog 기준 최근 업데이트는 일반 사용자에게도 의미가 있습니다.
-            개발자가 아니어도 사내 공지 페이지, 데이터 정리 스크립트, 업무 자동화, 간단한 도구 제작을 요청하고 결과를 검토할 수 있습니다.
+            Codex는 코드를 쓰고, 검토하고, 테스트하고, 배포 준비를 돕는 AI 에이전트입니다.
+            일반 사용자는 긴 설명 대신 목표, 저장소 위치, 수정 범위, 실행해야 할 검증 명령을 주고 결과를 확인하는 방식으로 쓰는 것이 좋습니다.
           </p>
         </div>
-        <div class="update-grid">
-          <article>
-            <span>2026-06-02</span>
-            <h3>Sites 미리보기</h3>
-            <p>Codex가 만든 웹사이트를 바로 확인하고 공유할 수 있습니다. 요청은 “예쁜 페이지”가 아니라 목적, 독자, 필수 섹션, 검토 기준으로 줍니다.</p>
-          </article>
-          <article>
-            <span>2026-05-29</span>
-            <h3>Windows Computer Use</h3>
-            <p>Windows 앱과 브라우저에서 실제 화면을 다루는 작업이 넓어졌습니다. 반복 클릭, 폼 확인, 화면 기반 테스트를 맡길 때 유용합니다.</p>
-          </article>
-          <article>
-            <span>2026-05-21</span>
+        <div class="check-grid">
+          <article class="check-card">
             <h3>Goal mode</h3>
-            <p>긴 작업은 “무엇을 끝내야 하는지”를 목표로 주고, 중간에 세부 지시를 보태는 방식이 더 잘 맞습니다.</p>
+            <p>긴 작업은 한 번의 질문보다 목표와 완료 조건을 정해 맡기면 중간 상태를 이어가기 쉽습니다.</p>
           </article>
-          <article>
-            <span>2026-05-21</span>
-            <h3>Appshots</h3>
-            <p>결과 화면을 스크린샷으로 남기며 진행할 수 있어, 사용자도 “보이는 결과”를 기준으로 피드백하기 쉬워졌습니다.</p>
+          <article class="check-card">
+            <h3>더 풍부한 맥락</h3>
+            <p>앱 화면, 에러 메시지, 재현 단계처럼 파일이 아닌 맥락도 텍스트로 구조화해 주면 품질이 올라갑니다.</p>
           </article>
-          <article>
-            <span>최근 흐름</span>
-            <h3>모바일 원격 확인</h3>
-            <p>자리를 비워도 진행 상태를 확인하고 방향을 조정할 수 있습니다. 단, 최종 검토와 승인 책임은 사용자에게 남아 있습니다.</p>
+          <article class="check-card">
+            <h3>브라우저 개선</h3>
+            <p>웹 UI 작업은 스크린샷과 실제 렌더링 검증을 요청해 눈으로 확인 가능한 결과를 받습니다.</p>
           </article>
-          <article>
-            <span>사용 팁</span>
-            <h3>작업 지시 템플릿</h3>
-            <p>“목표, 입력 자료, 금지 범위, 완료 기준, 확인 방법” 5가지를 포함하면 Codex 작업 품질이 안정됩니다.</p>
-          </article>
-        </div>
-        <div class="prompt-card compact">
-          <div>
-            <h3>Codex 작업 요청 프롬프트</h3>
-            <p>개발자가 아니어도 작은 웹페이지, 자동화, 데이터 정리 작업을 맡길 때 쓸 수 있습니다.</p>
-          </div>
-          <button class="copy-button" type="button" data-copy-target="codexPrompt" aria-label="Codex 프롬프트 복사">복사</button>
-          <pre id="codexPrompt"><code>목표: [끝내고 싶은 작업을 한 문장으로]
-입력 자료: [파일, URL, 참고 문서, 현재 화면]
-금지 범위: [수정하면 안 되는 파일, 외부 전송 금지 데이터, 지우면 안 되는 항목]
-완료 기준: [내가 확인할 수 있는 결과물, 예: 페이지 URL, 테스트 통과, 보고서 표]
-검토 방식: [스크린샷, 변경 요약, 실행 로그, 비교표 중 필요한 것]
-
-작업 중 애매한 부분은 먼저 가정하지 말고, 가장 영향이 큰 1가지만 질문해줘.</code></pre>
-        </div>
-      </section>
-
-      <section id="scenarios" class="section">
-        <div class="section-head">
-          <p class="section-kicker">05. 업무별 활용 예시</p>
-          <h2>“무엇을 시킬지”보다 “어떻게 검토할지”까지 같이 정한다</h2>
-          <p>
-            아래 예시는 부서 관리자를 위한 계획표가 아니라 일반 사용자의 시작 문장입니다.
-            입력 자료와 금지 데이터를 먼저 정하고, 출력물은 사람이 검토하기 쉬운 형태로 요청합니다.
-          </p>
-        </div>
-        <figure class="visual-frame">
-          <img src="assets/department-scenarios.png" alt="개발, 기획, 영업, 인사, 법무 보안, 고객지원 부서별 활용 시나리오 표" />
-        </figure>
-        <div class="scenario-grid">
-          <article>
-            <h3>개발</h3>
-            <p>“이 에러 로그의 가능한 원인을 표로 정리하고, 재현 확인 순서와 테스트 케이스 초안을 만들어줘.”</p>
-          </article>
-          <article>
-            <h3>기획</h3>
-            <p>“첨부한 회의록에서 결정사항, 미결 이슈, 다음 회의 전 확인할 질문만 뽑아줘.”</p>
-          </article>
-          <article>
-            <h3>영업</h3>
-            <p>“고객명을 가린 미팅 노트를 바탕으로 제안서 목차와 고객이 물을 반론 5개를 만들어줘.”</p>
-          </article>
-          <article>
-            <h3>인사</h3>
-            <p>“직무기술서 초안을 더 명확하게 고치고, 지원자가 오해할 표현을 따로 표시해줘.”</p>
-          </article>
-          <article>
-            <h3>법무 / 보안</h3>
-            <p>“이 정책 초안에서 모호한 문장, 예외 처리가 필요한 조항, 사용자에게 설명해야 할 부분을 분리해줘.”</p>
-          </article>
-          <article>
-            <h3>고객지원</h3>
-            <p>“PII를 제거한 상담 로그를 유형별로 묶고, 답변 초안과 상담원이 확인할 체크리스트를 만들어줘.”</p>
+          <article class="check-card">
+            <h3>세션 보안 확인</h3>
+            <p>Active sessions에서 ChatGPT, Codex, API Platform 관련 세션을 확인하고 낯선 세션은 로그아웃합니다.</p>
           </article>
         </div>
       </section>
 
-      <section id="roadmap" class="section">
+      <section id="prompt-template" class="section">
         <div class="section-head">
-          <p class="section-kicker">06. 처음 30일 사용자 루틴</p>
-          <h2>기능을 많이 아는 것보다, 반복해서 쓸 업무 3개를 고정하는 것이 먼저다</h2>
-          <p>처음 30일은 조직 운영 프로젝트라기보다 개인과 팀의 업무 습관을 바꾸는 기간입니다.</p>
+          <p class="eyebrow">공통 프롬프트 골격</p>
+          <h2>모든 기능은 같은 입력 원칙에서 시작한다</h2>
         </div>
-        <figure class="visual-frame">
-          <img src="assets/roadmap-30days.png" alt="ChatGPT Enterprise 30일 도입 로드맵 타임라인" />
-        </figure>
-        <div class="roadmap-list">
-          <article><span>Week 0</span><h3>준비</h3><p>도입 목적, 이해관계자, 데이터 분류, 위험 평가, 커뮤니케이션 계획을 확정합니다.</p></article>
-          <article><span>Week 1</span><h3>개인 업무 3개</h3><p>회의 요약, 문서 초안, 파일 분석처럼 매주 반복되는 업무 3개를 골라 같은 형식으로 시도합니다.</p></article>
-          <article><span>Week 2</span><h3>팀 공유</h3><p>잘 된 프롬프트, 나쁜 결과 예시, 검토 기준을 팀 채널이나 위키에 남깁니다.</p></article>
-          <article><span>Week 3</span><h3>Codex 실험</h3><p>작은 웹페이지, 스크립트, 테스트 자동화처럼 결과를 눈으로 확인할 수 있는 작업을 맡겨봅니다.</p></article>
-          <article><span>Week 4</span><h3>측정 / 개선</h3><p>절감 시간, 재작업 감소, 공유 템플릿 사용률, 오류 사례를 확인하고 루틴을 줄입니다.</p></article>
+        <div class="prompt-panel">
+          <button class="copy-button" type="button" data-copy-target="basePrompt">복사</button>
+          <pre id="basePrompt"><code>목표:
+배경:
+사용할 수 있는 자료:
+- 텍스트 발췌:
+- 참고 URL:
+- 내가 요약한 맥락:
+제약:
+- 파일 첨부는 사용할 수 없음
+- 외부 공유 금지 정보:
+원하는 출력:
+검토 기준:
+추가 질문이 필요하면 먼저 3개 이하로 질문해줘.</code></pre>
         </div>
       </section>
 
-      <section id="policy" class="section">
+      <section id="sources" class="section sources">
         <div class="section-head">
-          <p class="section-kicker">07. 안전 사용 체크포인트</p>
-          <h2>일반 사용자는 “넣어도 되는가, 그대로 써도 되는가, 공유해도 되는가”를 확인한다</h2>
-          <p>정책 전문 용어를 몰라도 아래 세 가지 질문만 습관화하면 대부분의 위험을 줄일 수 있습니다.</p>
+          <p class="eyebrow">공식 자료</p>
+          <h2>기능 설명 기준일: 2026-06-09</h2>
         </div>
-        <div class="policy-grid">
-          <article>
-            <h3>허용</h3>
-            <ul>
-              <li>공개 자료 요약, 문서 초안, 회의록 구조화</li>
-              <li>비식별화된 예시 데이터 기반 분석</li>
-              <li>사내에서 승인된 프로젝트, GPT, 커넥터 사용</li>
-            </ul>
-          </article>
-          <article>
-            <h3>제한</h3>
-            <ul>
-              <li>고객 PII, 임직원 평가, 미공개 재무정보 입력</li>
-              <li>외부 전송이 금지된 코드, 계약서, 보안 문서 업로드</li>
-              <li>AI 답변을 검토 없이 고객·언론·외부 파트너에게 발송</li>
-            </ul>
-          </article>
-          <article>
-            <h3>검토</h3>
-            <ul>
-              <li>수치, 날짜, 인명, 고객명, 출처가 맞는지 확인</li>
-              <li>내 의견인지 AI 제안인지 구분해 책임자를 표시</li>
-              <li>반복 사용 전 팀 검토를 거쳐 템플릿으로 정리</li>
-            </ul>
-          </article>
-        </div>
-        <div class="prompt-card">
-          <div>
-            <h3>일반 사용자 업무 시작 프롬프트</h3>
-            <p>업무 하나를 안전하게 시작할 때 사용합니다.</p>
-          </div>
-          <button class="copy-button" type="button" data-copy-target="pilotPrompt" aria-label="파일럿 프롬프트 복사">복사</button>
-          <pre id="pilotPrompt"><code>다음 업무를 ChatGPT Enterprise로 처리하려고 합니다.
-
-조건:
-1. 입력해도 되는 정보와 빼야 할 정보를 먼저 구분해줘.
-2. 내가 추가로 제공해야 할 맥락을 질문해줘.
-3. 초안, 검토 체크리스트, 다음 액션을 분리해서 작성해줘.
-4. 외부 공유 전에 사람이 확인해야 할 항목을 표시해줘.
-
-출력 형식:
-- 입력 가능 정보
-- 입력하면 안 되는 정보
-- 필요한 추가 질문
-- 초안
-- 검토 체크리스트
-- 다음 액션</code></pre>
-        </div>
-      </section>
-
-      <section id="qa" class="section">
-        <div class="section-head">
-          <p class="section-kicker">08. Q&amp;A</p>
-          <h2>도입 회의에서 자주 나오는 질문</h2>
-        </div>
-        <div class="qa-list">
-          <details open>
-            <summary>개인 Plus나 Pro에서 하던 방식 그대로 쓰면 되는가?</summary>
-            <p>아닙니다. Enterprise에서는 더 많은 업무 맥락을 안전하게 붙일 수 있지만, 사내 데이터 분류와 외부 공유 검토는 더 엄격하게 지켜야 합니다.</p>
-          </details>
-          <details>
-            <summary>Codex는 개발자만 쓰는가?</summary>
-            <p>개발자가 아니어도 간단한 웹페이지, 반복 작업 스크립트, 데이터 정리 도구, 테스트 자동화는 요청할 수 있습니다. 다만 코드 변경의 영향과 보안 검토가 필요한 작업은 담당자와 같이 봐야 합니다.</p>
-          </details>
-          <details>
-            <summary>AI가 만든 결과를 그대로 써도 되는가?</summary>
-            <p>초안으로는 좋지만 그대로 쓰면 위험합니다. 숫자, 날짜, 사람 이름, 고객명, 법무·보안 표현, 출처는 반드시 사람이 확인해야 합니다.</p>
-          </details>
-          <details>
-            <summary>가장 먼저 익힐 습관은 무엇인가?</summary>
-            <p>“목표, 맥락, 금지 범위, 출력 형식, 검토 기준”을 한 번에 주는 습관입니다. 프롬프트를 멋지게 쓰는 것보다 이 다섯 가지가 더 중요합니다.</p>
-          </details>
-        </div>
-      </section>
-
-      <section id="sources" class="section">
-        <div class="section-head">
-          <p class="section-kicker">09. 공식 자료</p>
-          <h2>이 문서가 참고한 OpenAI 공식 자료</h2>
-          <p>기능과 정책은 바뀔 수 있으므로, 운영 문서로 채택할 때는 아래 자료를 기준일과 함께 다시 확인하세요. 기준일: 2026-06-03.</p>
-        </div>
-        <div class="source-grid">
-          <a href="https://chatgpt.com/business/enterprise/" target="_blank" rel="noreferrer">
-            <strong>ChatGPT Enterprise</strong>
-            Enterprise 개요, 회사 데이터 연결, 보안, 도입 지원
-          </a>
-          <a href="https://chatgpt.com/pricing/" target="_blank" rel="noreferrer">
-            <strong>ChatGPT Pricing</strong>
-            Free, Plus, Pro, Business, Enterprise 기능 비교
-          </a>
-          <a href="https://openai.com/business-data/" target="_blank" rel="noreferrer">
-            <strong>Business data privacy, security, and compliance</strong>
-            비즈니스 데이터 학습 제외, 암호화, 보존, 접근 관리, 컴플라이언스
-          </a>
-          <a href="https://help.openai.com/en/articles/11428266-codex-changelog" target="_blank" rel="noreferrer">
-            <strong>Codex changelog</strong>
-            Sites, Goal mode, Appshots, Windows Computer Use, 모바일 원격 접근 등 최신 Codex 업데이트
-          </a>
-          <a href="https://help.openai.com/en/articles/11369540-openai-codex-cloud-based-software-engineering-agent" target="_blank" rel="noreferrer">
-            <strong>OpenAI Codex cloud agent</strong>
-            ChatGPT 안에서 동작하는 클라우드 기반 소프트웨어 엔지니어링 에이전트 개요
-          </a>
+        <div class="source-list">
+          <a href="https://chatgpt.com/business/enterprise/" target="_blank" rel="noreferrer">ChatGPT Enterprise</a>
+          <a href="https://chatgpt.com/pricing/" target="_blank" rel="noreferrer">ChatGPT Pricing</a>
+          <a href="https://openai.com/business-data/" target="_blank" rel="noreferrer">Business data privacy</a>
+          <a href="https://help.openai.com/en/articles/11084440-chatgpt-image-library" target="_blank" rel="noreferrer">Images in ChatGPT</a>
+          <a href="https://help.openai.com/en/articles/10169521-using-projects-in-chatgpt" target="_blank" rel="noreferrer">Projects in ChatGPT</a>
+          <a href="https://help.openai.com/en/articles/10500283-deep-research-faq" target="_blank" rel="noreferrer">Deep Research FAQ</a>
+          <a href="https://help.openai.com/en/articles/11369540" target="_blank" rel="noreferrer">Using Codex with your ChatGPT plan</a>
+          <a href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank" rel="noreferrer">ChatGPT Release Notes</a>
         </div>
       </section>
     </main>

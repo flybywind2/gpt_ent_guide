@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chat 사용 가이드 | ChatGPT Enterprise</title>
+    <meta name="description" content="파일 첨부 없이 ChatGPT Enterprise의 Chat 기능을 실무에 쓰는 사용자 가이드" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body data-page="chat">
+    <header class="topbar">
+      <a class="brand" href="../index.html">
+        <span>ChatGPT Enterprise</span>
+        <strong>사용자 가이드</strong>
+      </a>
+      <nav class="topnav" aria-label="주요 페이지">
+        <a href="./chat.html">Chat</a>
+        <a href="./image-generation.html">Image Generation</a>
+        <a href="./projects.html">Projects</a>
+        <a href="./deep-research.html">Deep Research</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="feature-hero">
+        <div class="feature-copy">
+          <p class="eyebrow">Chat</p>
+          <h1>대화형 업무 파트너로 쓰기</h1>
+          <p class="hero-lead">
+            Chat은 요약, 초안 작성, 비교, 검토, 의사결정 보조에 가장 범용적으로 쓰입니다.
+            파일 첨부 없이 사용할 때는 작업 목표와 필요한 발췌문을 대화 안에 명확히 넣는 것이 핵심입니다.
+          </p>
+          <div class="page-actions">
+            <a class="button primary" href="#template">프롬프트 템플릿</a>
+            <a class="button secondary" href="../index.html#features">전체 기능 보기</a>
+          </div>
+        </div>
+        <figure class="feature-image">
+          <img src="../assets/guide-chat-white.png" alt="파일 첨부 없이 Chat 기능을 업무 대화에 활용하는 화이트 테마 이미지" />
+        </figure>
+      </section>
+
+      <div class="feature-layout">
+        <nav class="side-rail" aria-label="페이지 섹션">
+          <a href="#best-for">어디에 쓰나</a>
+          <a href="#input">입력 방식</a>
+          <a href="#workflow">작업 흐름</a>
+          <a href="#template">템플릿</a>
+        </nav>
+
+        <div class="feature-content">
+          <section id="best-for" class="section">
+            <div class="notice">
+              <strong>첨부 불가 전제</strong>
+              <p>문서, 이미지, 스프레드시트 파일은 올리지 않는다고 가정합니다. 필요한 정보는 텍스트로 발췌하거나 직접 요약해서 넣습니다.</p>
+            </div>
+            <div class="page-grid">
+              <article class="note-card">
+                <h3>문서 요약</h3>
+                <p>회의록, 정책 문단, 공지 초안을 핵심 메시지와 액션 아이템으로 정리합니다.</p>
+              </article>
+              <article class="note-card">
+                <h3>초안 작성</h3>
+                <p>메일, 보고서 문단, FAQ, 안내문, 슬랙 공지를 대상 독자에 맞게 씁니다.</p>
+              </article>
+              <article class="note-card">
+                <h3>검토와 개선</h3>
+                <p>논리 누락, 모호한 표현, 과도한 주장, 다음 질문을 찾아 개선안을 받습니다.</p>
+              </article>
+            </div>
+          </section>
+
+          <section id="input" class="section">
+            <div class="section-head">
+              <p class="eyebrow">입력 방식</p>
+              <h2>첨부 대신 대화 안에 재료를 넣는다</h2>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>입력 요소</th>
+                    <th>어떻게 쓰나</th>
+                    <th>예시</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>목표</td>
+                    <td>결과물이 무엇이어야 하는지 한 문장으로 적습니다.</td>
+                    <td>임원 보고용 5줄 요약을 만들어줘.</td>
+                  </tr>
+                  <tr>
+                    <td>발췌문</td>
+                    <td>원문 전체 대신 판단에 필요한 문단만 붙입니다.</td>
+                    <td>아래 회의 메모에서 결정사항과 보류사항을 분리해줘.</td>
+                  </tr>
+                  <tr>
+                    <td>제약</td>
+                    <td>톤, 분량, 금지 표현, 검토 기준을 지정합니다.</td>
+                    <td>고객에게 확정처럼 보이는 표현은 쓰지 마.</td>
+                  </tr>
+                  <tr>
+                    <td>출력 형식</td>
+                    <td>표, 체크리스트, 메일, 보고서 문단처럼 형태를 정합니다.</td>
+                    <td>표로 작성하고 마지막 열에 담당자를 제안해줘.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="workflow" class="section">
+            <div class="section-head">
+              <p class="eyebrow">실무 흐름</p>
+              <h2>한 번에 완성보다 왕복을 설계한다</h2>
+            </div>
+            <div class="steps">
+              <article class="step-card">
+                <span>1</span>
+                <h3>초안 요청</h3>
+                <p>목표, 배경, 발췌문, 출력 형식을 넣고 첫 답변을 받습니다.</p>
+              </article>
+              <article class="step-card">
+                <span>2</span>
+                <h3>검토 요청</h3>
+                <p>빠진 관점, 위험한 표현, 확인할 사실을 따로 점검하게 합니다.</p>
+              </article>
+              <article class="step-card">
+                <span>3</span>
+                <h3>재작성</h3>
+                <p>독자, 분량, 톤을 바꿔 최종 문서에 바로 붙일 수 있게 다듬습니다.</p>
+              </article>
+            </div>
+          </section>
+
+          <section id="template" class="section">
+            <div class="section-head">
+              <p class="eyebrow">복사해서 쓰기</p>
+              <h2>Chat 기본 템플릿</h2>
+            </div>
+            <div class="prompt-panel">
+              <button class="copy-button" type="button" data-copy-target="chatPrompt">복사</button>
+              <pre id="chatPrompt"><code>역할: 내 업무 문서를 검토하고 초안을 만드는 파트너
+목표:
+대상 독자:
+배경:
+첨부 파일은 사용할 수 없으므로 아래 텍스트만 근거로 작업해줘.
+텍스트 발췌:
+
+원하는 출력:
+- 형식:
+- 분량:
+- 톤:
+검토 기준:
+- 불확실한 내용은 단정하지 말 것
+- 민감정보가 있으면 표시할 것
+- 추가 질문은 최대 3개만 할 것</code></pre>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <nav class="footer-nav" aria-label="이전 다음">
+        <a class="button secondary" href="../index.html">홈으로</a>
+        <a class="button primary" href="./image-generation.html">다음: Image Generation</a>
+      </nav>
+    </main>
+
+    <script src="../script.js"></script>
+  </body>
+</html>
