@@ -37,12 +37,38 @@ const htmlFiles = [
 ];
 
 const index = read("index.html");
-for (const id of ["hero", "subscription-difference", "no-attachments", "features", "workflow", "safety", "codex-updates", "prompt-template", "sources"]) {
+for (const id of [
+  "hero",
+  "overview",
+  "quick-start",
+  "flow",
+  "difference",
+  "subscription-difference",
+  "enterprise-core",
+  "enterprise",
+  "operating-model",
+  "scenarios",
+  "no-attachments",
+  "features",
+  "workflow",
+  "safety",
+  "codex-updates",
+  "prompt-template",
+  "sources",
+]) {
   if (!index.includes(`id="${id}"`)) throw new Error(`Missing section id: ${id}`);
 }
 
 for (const requiredText of [
   "ChatGPT Enterprise",
+  "개요",
+  "빠른 시작",
+  "차이점",
+  "Enterprise 핵심",
+  "운영 모델",
+  "활용 시나리오",
+  "처음 30분은 기능 탐색이 아니라 업무 하나를 끝내는 데 쓴다",
+  "보안팀만의 일도 아니고, 현업만의 일도 아니다",
   "파일 첨부 불가",
   "Chat",
   "Image Generation",
@@ -120,7 +146,23 @@ for (const [file, title, image] of pageExpectations) {
 }
 
 const css = read("styles.css");
-for (const token of ["--bg: #ffffff", "@media", ".topbar", ".feature-hero", ".feature-preview", ".difference-grid", ".comparison-table", ".prompt-panel", ".side-rail"]) {
+for (const token of [
+  "--bg: #ffffff",
+  "@media",
+  ".topbar",
+  ".feature-hero",
+  ".feature-preview",
+  ".overview-grid",
+  ".guide-map",
+  ".difference-grid",
+  ".comparison-table",
+  ".core-grid",
+  ".role-grid",
+  ".scenario-grid",
+  ".operating-loop",
+  ".prompt-panel",
+  ".side-rail",
+]) {
   if (!css.includes(token)) throw new Error(`Missing CSS token: ${token}`);
 }
 for (const darkToken of ["#0b1020", "#101828", "linear-gradient(135deg, #14171f"]) {

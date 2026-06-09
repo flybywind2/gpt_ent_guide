@@ -223,6 +223,11 @@ p, li, td, th {
 .principles,
 .feature-cards,
 .difference-grid,
+.overview-grid,
+.core-grid,
+.role-grid,
+.scenario-grid,
+.operating-loop,
 .steps,
 .check-grid,
 .source-list,
@@ -233,13 +238,37 @@ p, li, td, th {
 .principles,
 .feature-cards,
 .difference-grid,
+.overview-grid,
+.core-grid,
+.role-grid,
+.scenario-grid,
+.operating-loop,
 .steps,
 .check-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+.anchor-target {
+  display: block;
+  position: relative;
+  top: -90px;
+  height: 0;
+}
+.overview-grid,
+.role-grid,
+.scenario-grid,
+.core-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+.overview-grid {
   grid-template-columns: repeat(4, 1fr);
 }
 .difference-grid {
   grid-template-columns: repeat(3, 1fr);
   margin-bottom: 22px;
+}
+.operating-loop {
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 18px;
 }
 .page-grid {
   grid-template-columns: repeat(3, 1fr);
@@ -247,6 +276,7 @@ p, li, td, th {
 .principles article,
 .feature-card,
 .difference-card,
+.operating-loop article,
 .step-card,
 .check-card,
 .source-list a,
@@ -258,6 +288,8 @@ p, li, td, th {
   box-shadow: 0 10px 28px rgba(20, 23, 31, 0.04);
 }
 .principles article span,
+.note-card span,
+.operating-loop span,
 .step-card span,
 .feature-card span {
   display: inline-flex;
@@ -284,9 +316,34 @@ p, li, td, th {
 .feature-card.purple span { color: var(--purple); background: #f6f3ff; }
 .feature-card p,
 .difference-card p,
+.operating-loop p,
 .step-card p,
 .check-card p,
 .note-card p { margin-bottom: 0; }
+.guide-map {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  margin-top: 18px;
+}
+.guide-map a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px;
+  color: var(--green);
+  text-align: center;
+  text-decoration: none;
+  font-weight: 900;
+  border: 1px solid #b8e4d3;
+  border-radius: var(--radius);
+  background: var(--soft-green);
+}
+.guide-map a:hover {
+  border-color: var(--green);
+  background: #ffffff;
+}
 .difference-card span {
   display: inline-flex;
   min-height: 28px;
@@ -444,12 +501,20 @@ th {
   }
   .principles,
   .feature-cards,
-.difference-grid,
+  .difference-grid,
+.overview-grid,
+.core-grid,
+.role-grid,
+.scenario-grid,
+.operating-loop,
   .steps,
   .check-grid,
   .page-grid,
   .source-list {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .guide-map {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -478,13 +543,21 @@ th {
   }
   .principles,
   .feature-cards,
-.difference-grid,
+  .difference-grid,
+.overview-grid,
+.core-grid,
+.role-grid,
+.scenario-grid,
+.operating-loop,
   .steps,
   .check-grid,
   .page-grid,
   .source-list,
   .side-rail {
     grid-template-columns: 1fr;
+  }
+  .guide-map {
+    grid-template-columns: 1fr 1fr;
   }
   .prompt-panel .copy-button {
     position: static;

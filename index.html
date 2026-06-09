@@ -36,9 +36,9 @@
             Projects, Deep Research를 실무에 적용하는 방법을 정리했습니다.
           </p>
           <div class="hero-actions">
-            <a class="button primary" href="#features">기능별 사용법 보기</a>
-            <a class="button secondary" href="#subscription-difference">개인 구독과 차이 보기</a>
-            <a class="button secondary" href="#no-attachments">첨부 없이 쓰는 원칙</a>
+            <a class="button primary" href="#quick-start">빠른 시작</a>
+            <a class="button secondary" href="#difference">차이점 보기</a>
+            <a class="button secondary" href="#scenarios">활용 시나리오</a>
           </div>
         </div>
         <figure class="hero-image">
@@ -46,9 +46,91 @@
         </figure>
       </section>
 
-      <section id="subscription-difference" class="section">
+      <section id="overview" class="section">
         <div class="section-head">
-          <p class="eyebrow">개인 구독 vs Enterprise</p>
+          <p class="eyebrow">개요</p>
+          <h2>개인 생산성 도구가 아니라 회사 업무 루틴으로 본다</h2>
+          <p>
+            ChatGPT Enterprise 도입 가이드는 관리자 설정 매뉴얼이 아니라 일반 사용자가 매일 어떻게 쓰고,
+            어떤 정보를 넣지 말아야 하며, 좋은 결과를 팀 자산으로 남기는지를 정리하는 문서입니다.
+            이 버전은 파일 첨부가 불가한 환경을 전제로 합니다.
+          </p>
+        </div>
+        <div class="overview-grid">
+          <article class="note-card">
+            <span>대상</span>
+            <h3>사내 Enterprise 사용 예정자</h3>
+            <p>처음 쓰는 사용자, 이미 개인 구독을 써본 사용자, 팀 템플릿을 만들 챔피언 모두를 대상으로 합니다.</p>
+          </article>
+          <article class="note-card">
+            <span>전제</span>
+            <h3>첨부 없이 텍스트로 맥락 제공</h3>
+            <p>문서 원본을 올리지 않고 텍스트 발췌, URL, 회의 메모, 표 일부, 직접 요약한 배경만 사용합니다.</p>
+          </article>
+          <article class="note-card">
+            <span>목표</span>
+            <h3>업무 하나를 끝내는 사용법</h3>
+            <p>기능 탐색보다 회의 정리, 문서 초안, 조사, 이미지 제작처럼 오늘 처리할 업무에 바로 적용합니다.</p>
+          </article>
+          <article class="note-card">
+            <span>검토</span>
+            <h3>결과는 사람이 확인</h3>
+            <p>사실, 수치, 고객명, 법무·보안 표현, 사내 정책 위반 가능성을 최종 검토합니다.</p>
+          </article>
+        </div>
+        <nav class="guide-map" aria-label="가이드 주요 섹션">
+          <a href="#overview">개요</a>
+          <a href="#quick-start">빠른 시작</a>
+          <a href="#difference">차이점</a>
+          <a href="#enterprise-core">Enterprise 핵심</a>
+          <a href="#operating-model">운영 모델</a>
+          <a href="#scenarios">활용 시나리오</a>
+        </nav>
+      </section>
+
+      <section id="quick-start" class="section">
+        <span id="flow" class="anchor-target" aria-hidden="true"></span>
+        <div class="section-head">
+          <p class="eyebrow">빠른 시작</p>
+          <h2>처음 30분은 기능 탐색이 아니라 업무 하나를 끝내는 데 쓴다</h2>
+          <p>
+            좋은 시작점은 거창한 AI 전략이 아닙니다. 오늘 해야 할 반복 업무 하나를 고르고,
+            첨부 대신 제공할 텍스트 맥락과 검토 기준을 정한 뒤 결과를 바로 비교합니다.
+          </p>
+        </div>
+        <div class="steps">
+          <article class="step-card">
+            <span>1</span>
+            <h3>업무 고르기</h3>
+            <p>회의록, 보고서 초안, 표 분석, 이메일 초안처럼 결과를 바로 확인할 수 있는 일을 고릅니다.</p>
+          </article>
+          <article class="step-card">
+            <span>2</span>
+            <h3>맥락 주기</h3>
+            <p>목적, 대상, 제약, 참고 URL, 텍스트 발췌, 원하는 출력 형식을 한 번에 알려줍니다.</p>
+          </article>
+          <article class="step-card">
+            <span>3</span>
+            <h3>초안 받기</h3>
+            <p>처음부터 완성본을 기대하지 말고, 비교 가능한 초안과 대안을 받습니다.</p>
+          </article>
+          <article class="step-card">
+            <span>4</span>
+            <h3>검토하기</h3>
+            <p>사실, 수치, 고객명, 법무·보안 표현, 사내 정책 위반 가능성을 확인합니다.</p>
+          </article>
+          <article class="step-card">
+            <span>5</span>
+            <h3>반복 자산화</h3>
+            <p>잘 된 프롬프트와 검토 기준을 팀 템플릿으로 저장합니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="difference" class="section">
+        <span id="subscription-difference" class="anchor-target" aria-hidden="true"></span>
+        <div class="section-head">
+          <p class="eyebrow">차이점 · 개인 구독 vs Enterprise</p>
           <h2>Enterprise의 핵심은 더 큰 계정이 아니라 회사 업무 환경이다</h2>
           <p>
             개인 구독은 개인이 결제하고 개인 계정에서 생산성을 높이는 도구입니다.
@@ -126,6 +208,149 @@
             파일을 못 올리더라도 Enterprise 도입의 의미는 약해지지 않습니다.
             사용자는 개인 계정에 업무 내용을 흩뿌리지 않고, 회사 워크스페이스 안에서 텍스트 발췌, URL, 요약 메모, 팀 템플릿으로 안전하게 반복 업무를 처리하는 것이 핵심입니다.
           </p>
+        </div>
+      </section>
+
+      <section id="enterprise-core" class="section">
+        <span id="enterprise" class="anchor-target" aria-hidden="true"></span>
+        <div class="section-head">
+          <p class="eyebrow">Enterprise 핵심</p>
+          <h2>“더 강한 개인 계정”이 아니라 관리 가능한 AI 업무 환경</h2>
+          <p>
+            Enterprise의 핵심은 기능 수가 아니라 조직 경계 안에서 AI 사용을 표준화하는 데 있습니다.
+            일반 사용자는 세부 설정을 모두 알 필요는 없지만, 어떤 차이가 자신의 업무 방식에 영향을 주는지는 알아야 합니다.
+          </p>
+        </div>
+        <div class="core-grid">
+          <article class="check-card">
+            <h3>접근과 권한</h3>
+            <p>회사 계정, SSO, SCIM, 그룹 정책을 통해 누가 어떤 기능을 쓸 수 있는지 관리됩니다.</p>
+          </article>
+          <article class="check-card">
+            <h3>데이터 보호</h3>
+            <p>비즈니스 데이터 보호를 전제로 하며, 사용자는 민감정보를 줄여 입력하고 결과를 검토합니다.</p>
+          </article>
+          <article class="check-card">
+            <h3>공유 지식 자산</h3>
+            <p>프로젝트 지시문, 프롬프트 템플릿, GPT, Company Knowledge를 팀 기준으로 운영할 수 있습니다.</p>
+          </article>
+          <article class="check-card">
+            <h3>회사 데이터 연결</h3>
+            <p>앱과 커넥터는 회사 정책에 따라 허용됩니다. 사용자는 연결 범위와 접근 권한을 확인해야 합니다.</p>
+          </article>
+          <article class="check-card">
+            <h3>운영 가시성</h3>
+            <p>사용량과 기능 활용 추세를 조직 차원에서 볼 수 있어 교육, 지원, 정책 개선에 활용됩니다.</p>
+          </article>
+          <article class="check-card">
+            <h3>지원과 확산</h3>
+            <p>개인 시행착오가 아니라 교육, 온보딩, 챔피언 네트워크로 좋은 사용법을 확산합니다.</p>
+          </article>
+        </div>
+        <div class="difference-note">
+          <strong>사용자 관점의 핵심</strong>
+          <p>
+            Enterprise는 “회사 데이터가 안전하니 아무거나 넣어도 된다”는 뜻이 아닙니다.
+            대신 허용된 범위 안에서 더 많은 업무 맥락을 주고, 결과를 검토하고, 반복 가능한 방식으로 팀에 공유할 수 있게 해줍니다.
+          </p>
+        </div>
+      </section>
+
+      <section id="operating-model" class="section">
+        <div class="section-head">
+          <p class="eyebrow">운영 모델</p>
+          <h2>보안팀만의 일도 아니고, 현업만의 일도 아니다</h2>
+          <p>
+            Enterprise 운영은 정책, 관리자 설정, 부서별 챔피언, 현업 활용 루프가 맞물릴 때 지속됩니다.
+            파일 첨부를 쓰지 않는 환경에서는 특히 “텍스트 맥락을 어떻게 표준화할지”가 운영의 핵심입니다.
+          </p>
+        </div>
+        <div class="role-grid">
+          <article class="note-card">
+            <h3>스폰서 / 경영진</h3>
+            <p>도입 목적, 우선순위, 허용 리스크, 성공 지표를 승인합니다.</p>
+          </article>
+          <article class="note-card">
+            <h3>IT / 보안 / 법무</h3>
+            <p>SSO, SCIM, 보존 정책, 커넥터 허용, 데이터 분류 기준을 운영합니다.</p>
+          </article>
+          <article class="note-card">
+            <h3>워크스페이스 관리자</h3>
+            <p>구성원, 그룹, 기능 권한, 공유 GPT, 사용 분석을 관리합니다.</p>
+          </article>
+          <article class="note-card">
+            <h3>부서별 챔피언</h3>
+            <p>현업 사례를 발굴하고 프롬프트, 템플릿, 교육 자료로 정리합니다.</p>
+          </article>
+          <article class="note-card">
+            <h3>일반 사용자</h3>
+            <p>정책을 지키며 업무에 적용하고, 개선 요청과 성공 사례를 피드백합니다.</p>
+          </article>
+        </div>
+        <div class="operating-loop">
+          <article>
+            <span>1</span>
+            <h3>정책</h3>
+            <p>무엇을 입력할 수 있고 어떤 정보는 제외해야 하는지 정합니다.</p>
+          </article>
+          <article>
+            <span>2</span>
+            <h3>템플릿</h3>
+            <p>첨부 없이도 쓸 수 있는 입력 구조와 검토 기준을 만듭니다.</p>
+          </article>
+          <article>
+            <span>3</span>
+            <h3>교육</h3>
+            <p>기능 소개보다 실제 업무 예시와 실패 사례를 중심으로 공유합니다.</p>
+          </article>
+          <article>
+            <span>4</span>
+            <h3>측정</h3>
+            <p>활성 사용자, 재작업 감소, 템플릿 재사용률, 정책 위반 감소를 함께 봅니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="scenarios" class="section">
+        <div class="section-head">
+          <p class="eyebrow">활용 시나리오</p>
+          <h2>“무엇을 시킬지”보다 “어떻게 검토할지”까지 같이 정한다</h2>
+          <p>
+            아래 예시는 부서 관리자를 위한 계획표가 아니라 일반 사용자의 시작 문장입니다.
+            입력 자료와 금지 데이터를 먼저 정하고, 출력물은 사람이 검토하기 쉬운 형태로 요청합니다.
+          </p>
+        </div>
+        <div class="scenario-grid">
+          <article class="note-card">
+            <span>개발</span>
+            <h3>에러 로그와 테스트 초안</h3>
+            <p>“이 에러 로그의 가능한 원인을 표로 정리하고, 재현 확인 순서와 테스트 케이스 초안을 만들어줘.”</p>
+          </article>
+          <article class="note-card">
+            <span>기획</span>
+            <h3>회의록 구조화</h3>
+            <p>“아래 회의 메모에서 결정사항, 미결 이슈, 다음 회의 전 확인할 질문만 뽑아줘.”</p>
+          </article>
+          <article class="note-card">
+            <span>영업</span>
+            <h3>고객 미팅 후속 작업</h3>
+            <p>“고객명을 가린 미팅 노트를 바탕으로 제안서 목차와 고객이 물을 반론 5개를 만들어줘.”</p>
+          </article>
+          <article class="note-card">
+            <span>인사</span>
+            <h3>JD와 안내문 개선</h3>
+            <p>“직무기술서 초안을 더 명확하게 고치고, 지원자가 오해할 표현을 따로 표시해줘.”</p>
+          </article>
+          <article class="note-card">
+            <span>법무 / 보안</span>
+            <h3>정책 초안 점검</h3>
+            <p>“이 정책 초안에서 모호한 문장, 예외 처리가 필요한 조항, 사용자 설명이 필요한 부분을 분리해줘.”</p>
+          </article>
+          <article class="note-card">
+            <span>고객지원</span>
+            <h3>상담 유형 분류</h3>
+            <p>“PII를 제거한 상담 로그를 유형별로 묶고, 답변 초안과 상담원이 확인할 체크리스트를 만들어줘.”</p>
+          </article>
         </div>
       </section>
 
