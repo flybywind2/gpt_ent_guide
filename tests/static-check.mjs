@@ -61,6 +61,10 @@ for (const id of [
 
 for (const requiredText of [
   "ChatGPT Enterprise",
+  "사용자 가이드 네비게이션",
+  "data-guide-link",
+  "일반 사용자 중심",
+  "작게 맡기고",
   "개요",
   "빠른 시작",
   "차이점",
@@ -69,7 +73,7 @@ for (const requiredText of [
   "활용 시나리오",
   "처음 30분은 기능 탐색이 아니라 업무 하나를 끝내는 데 쓴다",
   "보안팀만의 일도 아니고, 현업만의 일도 아니다",
-  "파일 첨부 불가",
+  "파일 첨부",
   "Chat",
   "Image Generation",
   "Projects",
@@ -94,6 +98,14 @@ for (const requiredText of [
   "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
 ]) {
   if (!index.includes(requiredText)) throw new Error(`Missing required content: ${requiredText}`);
+}
+
+const heroMatch = index.match(/<section id="hero"[\s\S]*?<\/section>/);
+if (!heroMatch) throw new Error("Missing hero section");
+for (const removedHeroText of ["파일 첨부 불가 환경 전제", "첨부 없이도"]) {
+  if (heroMatch[0].includes(removedHeroText)) {
+    throw new Error(`Removed first-screen text is still present: ${removedHeroText}`);
+  }
 }
 
 const oldAssets = [
@@ -150,10 +162,10 @@ for (const token of [
   "--bg: #ffffff",
   "@media",
   ".topbar",
+  ".guide-sidebar",
   ".feature-hero",
   ".feature-preview",
   ".overview-grid",
-  ".guide-map",
   ".difference-grid",
   ".comparison-table",
   ".core-grid",
@@ -170,7 +182,7 @@ for (const darkToken of ["#0b1020", "#101828", "linear-gradient(135deg, #14171f"
 }
 
 const js = read("script.js");
-for (const token of ["data-copy-target", "aria-current", "side-rail"]) {
+for (const token of ["data-copy-target", "aria-current", "side-rail", "data-guide-link"]) {
   if (!js.includes(token)) throw new Error(`Missing JS behavior: ${token}`);
 }
 

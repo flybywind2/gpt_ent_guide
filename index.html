@@ -12,6 +12,31 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body data-page="home">
+    <aside class="guide-sidebar" aria-label="사용자 가이드 네비게이션">
+      <a class="guide-sidebar-brand" href="#hero">
+        <span>ChatGPT Enterprise</span>
+        <strong>사용자 가이드</strong>
+        <small>현재 기준 · 일반 사용자 중심</small>
+      </a>
+      <nav>
+        <a href="#overview" data-guide-link><span>01</span>개요</a>
+        <a href="#quick-start" data-guide-link><span>02</span>빠른 시작</a>
+        <a href="#difference" data-guide-link><span>03</span>차이점</a>
+        <a href="#enterprise-core" data-guide-link><span>04</span>Enterprise 핵심</a>
+        <a href="#operating-model" data-guide-link><span>05</span>운영 모델</a>
+        <a href="#scenarios" data-guide-link><span>06</span>활용 시나리오</a>
+        <a href="#features" data-guide-link><span>07</span>기능별 페이지</a>
+        <a href="#workflow" data-guide-link><span>08</span>공통 작업 흐름</a>
+        <a href="#safety" data-guide-link><span>09</span>안전 원칙</a>
+        <a href="#codex-updates" data-guide-link><span>10</span>Codex</a>
+        <a href="#sources" data-guide-link><span>11</span>공식 자료</a>
+      </nav>
+      <div class="guide-sidebar-note">
+        <span>핵심 원칙</span>
+        작게 맡기고 · 검토하고 · 공유한다
+      </div>
+    </aside>
+
     <header class="topbar">
       <a class="brand" href="./index.html" aria-label="ChatGPT Enterprise 사용자 가이드 홈">
         <span>ChatGPT Enterprise</span>
@@ -28,12 +53,11 @@
     <main>
       <section id="hero" class="hero light-hero">
         <div class="hero-copy">
-          <p class="eyebrow">파일 첨부 불가 환경 전제</p>
-          <h1>첨부 없이도 ChatGPT Enterprise를 업무에 쓰는 법</h1>
+          <p class="eyebrow">일반 사용자 중심</p>
+          <h1>ChatGPT Enterprise를 업무에 쓰는 법</h1>
           <p class="hero-lead">
-            이 가이드는 사내 보안 정책상 파일 첨부를 사용할 수 없다고 가정합니다.
-            대신 텍스트 발췌, URL, 회의 메모, 표 일부, 체크리스트만으로 Chat, Image Generation,
-            Projects, Deep Research를 실무에 적용하는 방법을 정리했습니다.
+            개인 구독과 Enterprise의 차이를 이해하고, Chat, Image Generation, Projects,
+            Deep Research, Codex를 사내 업무 루틴에 적용하는 방법을 정리했습니다.
           </p>
           <div class="hero-actions">
             <a class="button primary" href="#quick-start">빠른 시작</a>
@@ -42,7 +66,7 @@
           </div>
         </div>
         <figure class="hero-image">
-          <img src="assets/guide-overview-white.png" alt="파일 첨부 없이 ChatGPT Enterprise의 주요 기능을 사용하는 화이트 테마 개요 이미지" />
+          <img src="assets/guide-overview-white.png" alt="ChatGPT Enterprise의 주요 기능을 사용하는 화이트 테마 개요 이미지" />
         </figure>
       </section>
 
@@ -78,14 +102,6 @@
             <p>사실, 수치, 고객명, 법무·보안 표현, 사내 정책 위반 가능성을 최종 검토합니다.</p>
           </article>
         </div>
-        <nav class="guide-map" aria-label="가이드 주요 섹션">
-          <a href="#overview">개요</a>
-          <a href="#quick-start">빠른 시작</a>
-          <a href="#difference">차이점</a>
-          <a href="#enterprise-core">Enterprise 핵심</a>
-          <a href="#operating-model">운영 모델</a>
-          <a href="#scenarios">활용 시나리오</a>
-        </nav>
       </section>
 
       <section id="quick-start" class="section">

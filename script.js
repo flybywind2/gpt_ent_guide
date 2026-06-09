@@ -19,22 +19,22 @@ for (const link of document.querySelectorAll(".topnav a")) {
   }
 }
 
-const railLinks = [...document.querySelectorAll(".side-rail a")];
-const sections = railLinks
+const guideLinks = [...document.querySelectorAll(".side-rail a, [data-guide-link]")];
+const sections = guideLinks
   .map((link) => document.querySelector(link.getAttribute("href")))
   .filter(Boolean);
 
-function updateRail() {
+function updateGuideNavigation() {
   let current = sections[0]?.id;
   for (const section of sections) {
     if (section.getBoundingClientRect().top <= 140) current = section.id;
   }
-  for (const link of railLinks) {
+  for (const link of guideLinks) {
     link.classList.toggle("active", link.getAttribute("href") === `#${current}`);
   }
 }
 
 if (sections.length) {
-  window.addEventListener("scroll", updateRail, { passive: true });
-  updateRail();
+  window.addEventListener("scroll", updateGuideNavigation, { passive: true });
+  updateGuideNavigation();
 }
