@@ -37,7 +37,7 @@ const htmlFiles = [
 ];
 
 const index = read("index.html");
-for (const id of ["hero", "no-attachments", "features", "workflow", "safety", "codex-updates", "prompt-template", "sources"]) {
+for (const id of ["hero", "subscription-difference", "no-attachments", "features", "workflow", "safety", "codex-updates", "prompt-template", "sources"]) {
   if (!index.includes(`id="${id}"`)) throw new Error(`Missing section id: ${id}`);
 }
 
@@ -49,6 +49,13 @@ for (const requiredText of [
   "Projects",
   "Deep Research",
   "개인 구독",
+  "Plus/Pro",
+  "도메인 검증",
+  "SSO",
+  "SCIM",
+  "중앙 멤버 관리",
+  "Company Knowledge",
+  "기능이 보이지 않으면",
   "Codex",
   "Goal mode",
   "https://chatgpt.com/business/enterprise/",
@@ -113,7 +120,7 @@ for (const [file, title, image] of pageExpectations) {
 }
 
 const css = read("styles.css");
-for (const token of ["--bg: #ffffff", "@media", ".topbar", ".feature-hero", ".feature-preview", ".prompt-panel", ".side-rail"]) {
+for (const token of ["--bg: #ffffff", "@media", ".topbar", ".feature-hero", ".feature-preview", ".difference-grid", ".comparison-table", ".prompt-panel", ".side-rail"]) {
   if (!css.includes(token)) throw new Error(`Missing CSS token: ${token}`);
 }
 for (const darkToken of ["#0b1020", "#101828", "linear-gradient(135deg, #14171f"]) {

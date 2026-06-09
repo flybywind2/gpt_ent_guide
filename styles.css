@@ -222,6 +222,7 @@ p, li, td, th {
 }
 .principles,
 .feature-cards,
+.difference-grid,
 .steps,
 .check-grid,
 .source-list,
@@ -231,15 +232,21 @@ p, li, td, th {
 }
 .principles,
 .feature-cards,
+.difference-grid,
 .steps,
 .check-grid {
   grid-template-columns: repeat(4, 1fr);
+}
+.difference-grid {
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 22px;
 }
 .page-grid {
   grid-template-columns: repeat(3, 1fr);
 }
 .principles article,
 .feature-card,
+.difference-card,
 .step-card,
 .check-card,
 .source-list a,
@@ -276,9 +283,55 @@ p, li, td, th {
 .feature-card.blue span { color: var(--blue); background: var(--soft-blue); }
 .feature-card.purple span { color: var(--purple); background: #f6f3ff; }
 .feature-card p,
+.difference-card p,
 .step-card p,
 .check-card p,
 .note-card p { margin-bottom: 0; }
+.difference-card span {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  margin-bottom: 14px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: var(--soft-blue);
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 900;
+}
+.difference-card.strong {
+  border-color: #b8e4d3;
+  background: var(--soft-green);
+}
+.difference-card.strong span {
+  color: var(--green);
+  background: #ffffff;
+}
+.comparison-table {
+  margin-top: 18px;
+}
+.comparison-table table {
+  min-width: 980px;
+}
+.comparison-table td:first-child {
+  color: var(--text);
+  font-weight: 900;
+}
+.difference-note {
+  margin-top: 18px;
+  padding: 20px 22px;
+  border: 1px solid #b8e4d3;
+  border-radius: var(--radius);
+  background: var(--soft-green);
+}
+.difference-note strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--green);
+}
+.difference-note p {
+  margin-bottom: 0;
+}
 
 .prompt-panel {
   position: relative;
@@ -391,6 +444,7 @@ th {
   }
   .principles,
   .feature-cards,
+.difference-grid,
   .steps,
   .check-grid,
   .page-grid,
@@ -424,6 +478,7 @@ th {
   }
   .principles,
   .feature-cards,
+.difference-grid,
   .steps,
   .check-grid,
   .page-grid,

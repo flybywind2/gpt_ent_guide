@@ -37,12 +37,96 @@
           </p>
           <div class="hero-actions">
             <a class="button primary" href="#features">기능별 사용법 보기</a>
+            <a class="button secondary" href="#subscription-difference">개인 구독과 차이 보기</a>
             <a class="button secondary" href="#no-attachments">첨부 없이 쓰는 원칙</a>
           </div>
         </div>
         <figure class="hero-image">
           <img src="assets/guide-overview-white.png" alt="파일 첨부 없이 ChatGPT Enterprise의 주요 기능을 사용하는 화이트 테마 개요 이미지" />
         </figure>
+      </section>
+
+      <section id="subscription-difference" class="section">
+        <div class="section-head">
+          <p class="eyebrow">개인 구독 vs Enterprise</p>
+          <h2>Enterprise의 핵심은 더 큰 계정이 아니라 회사 업무 환경이다</h2>
+          <p>
+            개인 구독은 개인이 결제하고 개인 계정에서 생산성을 높이는 도구입니다.
+            Enterprise는 조직이 구매하고, 사용자를 초대하거나 프로비저닝하며, 회사의 보안과 관리 정책 안에서 ChatGPT를 쓰는 업무용 워크스페이스입니다.
+            파일 첨부가 불가한 환경에서도 이 차이는 그대로 남습니다.
+          </p>
+        </div>
+
+        <div class="difference-grid">
+          <article class="difference-card">
+            <span>개인 구독</span>
+            <h3>혼자 빠르게 쓰는 생산성 도구</h3>
+            <p>개인 계정, 개인 결제, 개인 설정을 기준으로 Chat, 이미지 생성, 리서치, 코딩 보조를 활용합니다.</p>
+          </article>
+          <article class="difference-card strong">
+            <span>Enterprise</span>
+            <h3>회사 기준으로 통제되는 업무 공간</h3>
+            <p>초대 또는 ID 프로비저닝으로 접근하고, 워크스페이스 정책, 보안 설정, 사용량 관리, 회사 데이터 보호 기준을 따릅니다.</p>
+          </article>
+          <article class="difference-card">
+            <span>사용자 체감</span>
+            <h3>무엇을 넣어도 되는지가 달라진다</h3>
+            <p>Enterprise라도 사내 정책을 따라야 하지만, 개인 계정보다 업무 데이터와 팀 협업을 전제로 설계된 환경입니다.</p>
+          </article>
+        </div>
+
+        <div class="table-wrap comparison-table">
+          <table>
+            <thead>
+              <tr>
+                <th>구분</th>
+                <th>개인 구독 Plus/Pro 등</th>
+                <th>ChatGPT Enterprise</th>
+                <th>사용자가 기억할 점</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>가입과 소유</td>
+                <td>개인이 직접 가입하고 결제하며, 계정과 대화 이력도 개인 중심으로 관리합니다.</td>
+                <td>조직이 구매하고 워크스페이스 owner/admin이 초대하거나 회사 ID 시스템으로 프로비저닝합니다.</td>
+                <td>회사 업무는 개인 계정이 아니라 회사가 제공한 Enterprise 워크스페이스에서 시작합니다.</td>
+              </tr>
+              <tr>
+                <td>데이터 사용</td>
+                <td>개인 플랜은 모델 학습 사용에 대해 옵트아웃 설정이 제공됩니다.</td>
+                <td>Enterprise는 비즈니스 데이터 보호를 전제로 하며, 회사 데이터는 기본적으로 모델 학습에 사용되지 않는 업무용 환경입니다.</td>
+                <td>그래도 고객명, 개인정보, 미공개 수치처럼 불필요한 민감정보는 줄여서 입력합니다.</td>
+              </tr>
+              <tr>
+                <td>보안과 로그인</td>
+                <td>개인 로그인과 개인 보안 설정이 중심입니다. SAML SSO, SCIM, 도메인 검증 같은 조직 기능은 개인 플랜 범위가 아닙니다.</td>
+                <td>도메인 검증, SSO, SCIM, 중앙 멤버 관리, 사용량 인사이트 같은 조직 관리 기능을 사용할 수 있습니다.</td>
+                <td>접속 방식, 사용 가능한 기능, 외부 앱 연결은 회사 정책에 따라 달라질 수 있습니다.</td>
+              </tr>
+              <tr>
+                <td>협업 방식</td>
+                <td>개인 작업물과 개인 GPT 활용이 중심입니다. 팀 표준 템플릿이나 회사 지식 연결은 제한적입니다.</td>
+                <td>공유 프로젝트, GPT 관리, 앱/커넥터, Company Knowledge 같은 회사 맥락 활용이 워크스페이스 정책 안에서 가능합니다.</td>
+                <td>팀에서 반복하는 보고, 리서치, 문서 작성 방식은 프로젝트 지시문과 프롬프트 템플릿으로 맞춥니다.</td>
+              </tr>
+              <tr>
+                <td>기능과 한도</td>
+                <td>개인 플랜도 이미지 생성, Deep Research, 데이터 분석, Codex 같은 고급 기능을 사용할 수 있지만 개인 사용량과 플랜 기준을 따릅니다.</td>
+                <td>고급 도구, 더 높은 업무 사용량, 긴 컨텍스트, 회사 데이터 연결, 지원과 온보딩이 Enterprise 계약과 워크스페이스 설정에 따라 제공됩니다.</td>
+                <td>기능이 보이지 않으면 “내 계정 문제”로 단정하지 말고 워크스페이스 설정과 좌석 유형을 먼저 확인합니다.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="difference-note">
+          <strong>첨부 불가 환경에서의 결론</strong>
+          <p>
+            파일을 못 올리더라도 Enterprise 도입의 의미는 약해지지 않습니다.
+            사용자는 개인 계정에 업무 내용을 흩뿌리지 않고, 회사 워크스페이스 안에서 텍스트 발췌, URL, 요약 메모, 팀 템플릿으로 안전하게 반복 업무를 처리하는 것이 핵심입니다.
+          </p>
+        </div>
       </section>
 
       <section id="no-attachments" class="section">
