@@ -82,6 +82,9 @@ for (const requiredText of [
   "시간 제한은 없습니다. 오늘 업무 하나부터 시작합니다",
   "커뮤니티 실전 팁",
   "사실 · 추정 · 의견",
+  "500 에러 로그 30줄",
+  "신규 요금제 출시 회의",
+  "마케팅 캠페인 성과 메모",
   "Reddit privacy discourse",
   "r/ChatGPT security concerns",
   "보안팀만의 일도 아니고, 현업만의 일도 아니다",
@@ -153,10 +156,10 @@ for (const file of htmlFiles) {
 }
 
 const pageExpectations = [
-  ["pages/chat.html", "Chat 기본 템플릿", "guide-chat-white.png"],
-  ["pages/image-generation.html", "Image Generation 기본 템플릿", "guide-image-generation-white.png"],
-  ["pages/projects.html", "프로젝트 지시문 템플릿", "guide-projects-white.png"],
-  ["pages/deep-research.html", "Deep Research 기본 템플릿", "guide-deep-research-white.png"],
+  ["pages/chat.html", "제품 출시 회의록", "guide-chat-white.png"],
+  ["pages/image-generation.html", "신입 온보딩 자료", "guide-image-generation-white.png"],
+  ["pages/projects.html", "B제품 출시 전 리스크", "guide-projects-white.png"],
+  ["pages/deep-research.html", "AI 상담 자동화 도입 사례", "guide-deep-research-white.png"],
 ];
 
 for (const [file, title, image] of pageExpectations) {
