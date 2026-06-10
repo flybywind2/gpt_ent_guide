@@ -339,6 +339,7 @@ p, li, td, th {
 .core-grid,
 .role-grid,
 .scenario-grid,
+.community-grid,
 .operating-loop,
 .steps,
 .check-grid,
@@ -368,6 +369,7 @@ p, li, td, th {
 .overview-grid,
 .role-grid,
 .scenario-grid,
+.community-grid,
 .core-grid {
   grid-template-columns: repeat(3, 1fr);
 }
@@ -454,6 +456,9 @@ p, li, td, th {
 }
 .comparison-table {
   margin-top: 18px;
+}
+.community-table {
+  margin-top: 22px;
 }
 .comparison-table table {
   min-width: 980px;
@@ -617,6 +622,7 @@ th {
   .core-grid,
   .role-grid,
   .scenario-grid,
+  .community-grid,
   .operating-loop,
   .steps,
   .check-grid,
@@ -656,6 +662,7 @@ th {
   .core-grid,
   .role-grid,
   .scenario-grid,
+  .community-grid,
   .operating-loop,
   .steps,
   .check-grid,
