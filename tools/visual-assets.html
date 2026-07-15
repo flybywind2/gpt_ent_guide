@@ -346,6 +346,25 @@
         border-radius: 999px;
         background: var(--soft-green);
       }
+      .overview-features {
+        gap: 12px;
+      }
+      .overview-features .card {
+        padding: 16px 20px;
+      }
+      .overview-features .kicker {
+        min-height: 24px;
+        margin-bottom: 8px;
+        font-size: 13px;
+      }
+      .overview-features h3 {
+        margin-bottom: 6px;
+        font-size: 22px;
+      }
+      .overview-features p {
+        font-size: 16px;
+        line-height: 1.4;
+      }
     </style>
   </head>
   <body>
@@ -387,6 +406,27 @@
           title: "질문 범위와 출처 조건으로 조사 맡기기",
           subtitle: "공개 웹과 제공된 텍스트 맥락을 기반으로 출처, 근거, 한계가 포함된 리서치 보고서를 만듭니다.",
           stamp: "Deep Research · 본문 다이어그램",
+        },
+        "guide-scheduled-tasks-white": {
+          kind: "schedule",
+          label: "Scheduled Tasks 기능",
+          title: "매일 실행하고, 필요한 순간에만 확장",
+          subtitle: "일정은 가벼운 모니터링을 반복하고, 중요 변화가 있을 때만 고급 기능 실행용 프롬프트를 제안합니다.",
+          stamp: "일정 · Project · 크레딧",
+        },
+        "guide-plugins-white": {
+          kind: "plugins",
+          label: "사내 허용 Plugins",
+          title: "대화 결과를 실제 업무 산출물로 완성",
+          subtitle: "텍스트로 정리한 승인 결과를 Documents, Templates, PDF, Presentations, Spreadsheets로 이어갑니다.",
+          stamp: "5개 플러그인 · 본문 다이어그램",
+        },
+        "mixed-workflows-white": {
+          kind: "mixed",
+          label: "혼합 워크플로",
+          title: "Instant로 설계하고 전문 기능은 정확히 한 번",
+          subtitle: "반복과 초안은 가볍게, 조사와 이미지는 조건부로, 최종 산출물은 플러그인으로 완성합니다.",
+          stamp: "크레딧 효율 · 팀 공유",
         },
         "hero-enterprise": {
           kind: "enterprise",
@@ -437,6 +477,8 @@
         ["Image Generation", "프롬프트로 보고서와 발표용 이미지 제작", "blue"],
         ["Projects", "반복 업무의 지시문과 맥락 유지", "green"],
         ["Deep Research", "출처 기반 조사와 보고서 초안 작성", "purple"],
+        ["Scheduled Tasks", "정해진 시간에 반복 확인과 변화 감지", "blue"],
+        ["Plugins", "문서, 표, 발표, PDF 산출물 완성", "green"],
       ];
 
       function shell(data, inner) {
@@ -473,9 +515,9 @@
                 ].map(([n, t, b]) => `<div class="mini-row"><span class="dot">${n}</span><div><b>${t}</b><span>${b}</span></div></div>`).join("")}
               </div>
             </div>
-            <div class="grid cols-2">${cards}</div>
+            <div class="grid cols-2 overview-features">${cards}</div>
           </div>
-          <div class="band">
+          <div class="band" style="margin-top: 12px; padding: 14px 20px">
             <strong>입력 구조</strong>
             <p>목표 → 배경 → 사용할 수 있는 자료 → 제약 → 원하는 출력 → 검토 기준</p>
           </div>
@@ -567,6 +609,71 @@
             <article class="card"><h3>요약 구조</h3><p>TL;DR, 근거 표, 리스크, 추가 질문.</p></article>
             <article class="card purple"><h3>한계 확인</h3><p>상충 정보와 가정 조건을 분리합니다.</p></article>
           </div>
+        `);
+      }
+
+      function renderSchedule(data) {
+        return shell(data, `
+          <div class="flow" style="--flow-count: 5">
+            ${[
+              ["Project", "팀 맥락과 날짜별 결과를 공유"],
+              ["Scheduled Task", "매일 같은 기준으로 변화 확인"],
+              ["Instant", "요약, 분류, 실행 여부 판단"],
+              ["크레딧 게이트", "중요 변화일 때만 심화 프롬프트"],
+              ["팀 검토", "공유 프로젝트에서 승인과 후속 질문"],
+            ].map(([t, b], i) => `<article class="step"><span class="dot ${i === 3 ? "purple" : i === 1 ? "blue" : ""}">${i + 1}</span><h3>${t}</h3><p>${b}</p></article>`).join("")}
+          </div>
+          <div class="grid cols-3" style="margin-top: 22px">
+            <article class="card green"><h3>매일 실행</h3><p>변화가 없으면 짧게 종료하고 확인 범위만 남깁니다.</p></article>
+            <article class="card blue"><h3>실행 조건</h3><p>규제 발표, 가격 변경, 중대 장애처럼 명확한 트리거를 둡니다.</p></article>
+            <article class="card purple"><h3>공유 방식</h3><p>결과는 날짜별 프로젝트 대화에서 팀이 함께 검토합니다.</p></article>
+          </div>
+          <div class="band"><strong>파일 없는 일정</strong><p>필요한 맥락은 일정 프롬프트 자체에 완결된 텍스트로 넣습니다.</p></div>
+        `);
+      }
+
+      function renderPlugins(data) {
+        return shell(data, `
+          <div class="grid cols-5">
+            ${[
+              ["Documents", "보고서와 의사결정 메모", "green"],
+              ["Default Templates", "반복 산출물의 기본 골격", "blue"],
+              ["PDF", "승인된 배포본 고정", "purple"],
+              ["Presentations", "5장 발표와 발표자 노트", "blue"],
+              ["Spreadsheets", "표, 수식, 검증, 차트", "green"],
+            ].map(([t, b, tone], i) => `<article class="card ${tone}"><span class="dot ${tone === "blue" ? "blue" : tone === "purple" ? "purple" : ""}">${i + 1}</span><h3>${t}</h3><p>${b}</p></article>`).join("")}
+          </div>
+          <div class="flow" style="--flow-count: 5; margin-top: 22px">
+            ${[
+              ["Instant", "목차와 입력 계약"],
+              ["승인", "사실과 수치 확인"],
+              ["전문 플러그인", "문서·표·발표 제작"],
+              ["최종 검수", "레이아웃과 링크 확인"],
+              ["Project", "팀 결과 공유"],
+            ].map(([t, b], i) => `<article class="step"><span class="dot ${i === 2 ? "blue" : ""}">${i + 1}</span><h3>${t}</h3><p>${b}</p></article>`).join("")}
+          </div>
+          <div class="band"><strong>입력 원칙</strong><p>파일 대신 승인된 원고, Markdown 표, 공개 URL, 이미지 생성 결과를 넘깁니다.</p></div>
+        `);
+      }
+
+      function renderMixed(data) {
+        return shell(data, `
+          <div class="flow" style="--flow-count: 6">
+            ${[
+              ["Instant", "범위와 프롬프트 설계"],
+              ["Schedule", "반복 확인과 변화 감지"],
+              ["Project", "맥락과 결과 공유"],
+              ["Deep Research", "필요한 근거만 심화"],
+              ["Image", "선택한 시각물만 생성"],
+              ["Plugins", "문서·표·발표·PDF 완성"],
+            ].map(([t, b], i) => `<article class="step"><span class="dot ${i === 3 ? "purple" : i === 4 ? "blue" : ""}">${i + 1}</span><h3>${t}</h3><p>${b}</p></article>`).join("")}
+          </div>
+          <div class="grid cols-3" style="margin-top: 22px">
+            <article class="card green"><h3>가벼운 단계</h3><p>초안, 질문, 비교, 비평, 형식 변환은 Instant에서 반복합니다.</p></article>
+            <article class="card purple"><h3>비싼 단계</h3><p>조사와 이미지는 실행 조건과 중단 조건이 있을 때만 시작합니다.</p></article>
+            <article class="card blue"><h3>공유 단계</h3><p>승인 결과를 플러그인으로 완성하고 공유 프로젝트에 남깁니다.</p></article>
+          </div>
+          <div class="band"><strong>기본 루프</strong><p>설계 → 조건 확인 → 1회 실행 → Instant 검토 → 산출물 → 팀 공유</p></div>
         `);
       }
 
@@ -674,6 +781,9 @@
         image: renderImage,
         projects: renderProjects,
         research: renderResearch,
+        schedule: renderSchedule,
+        plugins: renderPlugins,
+        mixed: renderMixed,
         enterprise: renderEnterprise,
         matrix: renderMatrix,
         operating: renderOperating,

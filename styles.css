@@ -344,7 +344,8 @@ p, li, td, th {
 .steps,
 .check-grid,
 .source-list,
-.page-grid {
+.page-grid,
+.plugin-grid {
   display: grid;
   gap: 16px;
 }
@@ -386,6 +387,10 @@ p, li, td, th {
 }
 .page-grid {
   grid-template-columns: repeat(3, 1fr);
+}
+.feature-cards,
+.plugin-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 .principles article,
 .feature-card,
@@ -481,6 +486,47 @@ p, li, td, th {
 }
 .difference-note p {
   margin-bottom: 0;
+}
+.prompt-followup {
+  margin-top: 42px;
+}
+
+.recipe-list {
+  display: grid;
+  border-top: 1px solid var(--line);
+}
+.workflow-recipe {
+  display: grid;
+  grid-template-columns: minmax(210px, 0.42fr) minmax(0, 1.58fr);
+  gap: 28px;
+  align-items: start;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+}
+.workflow-recipe > div {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+.workflow-recipe span {
+  display: inline-flex;
+  width: 34px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--soft-green);
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 900;
+}
+.workflow-recipe h3,
+.workflow-recipe p {
+  margin-bottom: 0;
+}
+.workflow-recipe strong {
+  color: var(--text);
 }
 
 .prompt-panel {
@@ -627,6 +673,7 @@ th {
   .steps,
   .check-grid,
   .page-grid,
+  .plugin-grid,
   .source-list {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -667,9 +714,14 @@ th {
   .steps,
   .check-grid,
   .page-grid,
+  .plugin-grid,
   .source-list,
   .side-rail {
     grid-template-columns: 1fr;
+  }
+  .workflow-recipe {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
   .guide-sidebar {
     width: min(100vw - 28px, 1360px);

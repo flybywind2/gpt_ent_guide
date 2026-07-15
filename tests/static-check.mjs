@@ -19,11 +19,16 @@ const requiredFiles = [
   "pages/image-generation.html",
   "pages/projects.html",
   "pages/deep-research.html",
+  "pages/scheduled-tasks.html",
+  "pages/plugins.html",
   "assets/guide-overview-white.png",
   "assets/guide-chat-white.png",
   "assets/guide-image-generation-white.png",
   "assets/guide-projects-white.png",
   "assets/guide-deep-research-white.png",
+  "assets/guide-scheduled-tasks-white.png",
+  "assets/guide-plugins-white.png",
+  "assets/mixed-workflows-white.png",
   "assets/hero-enterprise.png",
   "assets/personal-vs-enterprise.png",
   "assets/operating-model.png",
@@ -41,6 +46,8 @@ const htmlFiles = [
   "pages/image-generation.html",
   "pages/projects.html",
   "pages/deep-research.html",
+  "pages/scheduled-tasks.html",
+  "pages/plugins.html",
 ];
 
 const index = read("index.html");
@@ -58,6 +65,8 @@ for (const id of [
   "community-playbook",
   "no-attachments",
   "features",
+  "schedules-and-credits",
+  "mixed-workflows",
   "workflow",
   "safety",
   "codex-updates",
@@ -93,6 +102,16 @@ for (const requiredText of [
   "Image Generation",
   "Projects",
   "Deep Research",
+  "Scheduled Tasks",
+  "Documents",
+  "Default Templates",
+  "PDF",
+  "Presentations",
+  "Spreadsheets",
+  "Instant로 설계하고, 필요한 순간에만 고급 기능을 실행한다",
+  "한 기능으로 끝내지 말고, 싼 단계와 비싼 단계를 분리한다",
+  "GPT-5.5 Instant",
+  "공유 크레딧",
   "개인 구독",
   "Plus/Pro",
   "도메인 검증",
@@ -109,6 +128,11 @@ for (const requiredText of [
   "https://help.openai.com/en/articles/11084440-chatgpt-image-library",
   "https://help.openai.com/en/articles/10169521-using-projects-in-chatgpt",
   "https://help.openai.com/en/articles/10500283-deep-research-faq",
+  "https://help.openai.com/en/articles/10291617-tasks-in-chatgpt",
+  "https://help.openai.com/en/articles/11487671",
+  "https://help.openai.com/en/articles/11481834",
+  "https://help.openai.com/en/articles/11487775-connectors-in-chatgpt..pdf",
+  "https://help.openai.com/en/articles/20001278-creating-and-editing-documents-spreadsheets-and-presentations-with-chatgpt-work",
   "https://help.openai.com/en/articles/11369540",
   "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
   "https://www.techradar.com/computing/artificial-intelligence/do-you-use-chatgpt-at-work-try-one-of-these-11-prompts-to-power-up-your-productivity-with-ai",
@@ -127,6 +151,7 @@ for (const restoredAsset of [
   "department-scenarios.png",
   "roadmap-30days.png",
   "user-codex-workflow.png",
+  "mixed-workflows-white.png",
 ]) {
   if (!index.includes(restoredAsset)) throw new Error(`Restored visual is not referenced in index: ${restoredAsset}`);
 }
@@ -143,6 +168,18 @@ for (const file of htmlFiles) {
   const html = read(file);
   if (!html.includes("파일 첨부")) throw new Error(`${file} must state the no-attachment assumption`);
   if (!html.includes("copy-button")) throw new Error(`${file} must include a copyable prompt template`);
+  for (const navPage of ["scheduled-tasks.html", "plugins.html"]) {
+    if (!html.includes(navPage)) throw new Error(`${file} missing top navigation link: ${navPage}`);
+  }
+
+  for (const match of html.matchAll(/<a[^>]+href="([^"]+)"[^>]*>/g)) {
+    const href = match[1];
+    if (/^(?:https?:|mailto:|#)/.test(href)) continue;
+    const localPath = href.split("#")[0].split("?")[0];
+    if (!localPath) continue;
+    const target = join(dirname(join(root, file)), localPath);
+    if (!existsSync(target)) throw new Error(`Broken local link in ${file}: ${href}`);
+  }
 
   const imageRefs = [...html.matchAll(/<img[^>]+src="([^"]+)"[^>]*>/g)];
   if (imageRefs.length < 1) throw new Error(`${file} must include at least one image`);
@@ -160,6 +197,8 @@ const pageExpectations = [
   ["pages/image-generation.html", "신입 온보딩 자료", "guide-image-generation-white.png"],
   ["pages/projects.html", "B제품 출시 전 리스크", "guide-projects-white.png"],
   ["pages/deep-research.html", "AI 상담 자동화 도입 사례", "guide-deep-research-white.png"],
+  ["pages/scheduled-tasks.html", "국내 금융권 AI 상담 동향 일일 모니터링", "guide-scheduled-tasks-white.png"],
+  ["pages/plugins.html", "Instant용 혼합 워크플로 설계 프롬프트", "guide-plugins-white.png"],
 ];
 
 for (const [file, title, image] of pageExpectations) {
@@ -191,6 +230,9 @@ for (const token of [
   ".operating-loop",
   ".prompt-panel",
   ".side-rail",
+  ".plugin-grid",
+  ".recipe-list",
+  ".workflow-recipe",
 ]) {
   if (!css.includes(token)) throw new Error(`Missing CSS token: ${token}`);
 }
